@@ -1,5 +1,7 @@
 (ns task02.query
-  (:use [task02 helpers db]))
+  (:require [task02 helpers db]
+            [clojure.core.match :refer [match]]
+            [clojure.string :as str]))
 
 ;; Функция выполняющая парсинг запроса переданного пользователем
 ;;
@@ -34,10 +36,37 @@
 ;; ("student" :where #<function> :order-by :id :limit 2 :joins [[:id "subject" :sid]])
 ;; > (parse-select "werfwefw")
 ;; nil
-(defn parse-select [^String sel-string]
-  :implement-me)
 
-(defn make-where-function [& args] :implement-me)
+(defn parse-select [^String sel-string]
+  (loop [res [] splitted-s (str/split sel-string #" ")]
+    (match splitted-s
+      [] res
+
+      ["select" table & _]
+      (recur (conj res table)
+             (vec (drop 2 splitted-s)))
+
+      ["where" op1 op op2 & _]
+      (recur (concat res [:where (make-where-function op1 op op2)])
+             (vec (drop 4 splitted-s)))
+
+      ["order" "by" column & _]
+      (recur (concat res [:order-by (keyword column)])
+             (vec (drop 3 splitted-s)))
+
+      ["limit" n & _]
+      (recur (concat res [:limit (parse-int n)])
+             (vec (drop 2 splitted-s)))
+
+      ["join" other_table "on" left_column "=" right_column & _]
+      (recur (concat res
+                     [:joins [[(keyword left_column) other_table (keyword right_column)]]])
+             (vec (drop 6 splitted-s)))
+
+      :else nil)))
+
+(parse-select "select student where id = 10 order by id limit 2 join subject on id = sid")
+(defn make-where-function [& args] "lala")
 
 ;; Выполняет запрос переданный в строке.  Бросает исключение если не удалось распарсить запрос
 

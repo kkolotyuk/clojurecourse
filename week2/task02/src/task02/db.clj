@@ -1,8 +1,8 @@
 (ns task02.db
   "Namespace for database-related data & functions..."
   (:require [clojure.data.csv :as csv]
-            [clojure.string :as str])
-  (:use task02.helpers))
+            [clojure.string :as str]
+            [task02.helpers :refer :all]))
 
 ;; helper functions
 
