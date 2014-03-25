@@ -12,6 +12,27 @@
 (defn join? [s] (= (str/lower-case s) "join"))
 (defn on? [s] (= (str/lower-case s) "on"))
 
+(defn str->op [s]
+  (case s
+    "=" =
+    "!=" not=
+    "<" <
+    ">" >
+    "<=" <=
+    ">=" >=
+    nil))
+
+(defn make-where-function [column-string op-string value-string]
+  (let [column (keyword column-string)
+        op (str->op op-string)
+        tmp (seq (re-matches #"'(.*)'" value-string))
+        value (cond
+             tmp (second tmp)
+             :else (parse-int value-string))]
+    (fn [m]
+      (when-let [v (column m)]
+        (op v value)))))
+
 ;; Функция выполняющая парсинг запроса переданного пользователем
 ;;
 ;; Синтаксис запроса:
@@ -45,10 +66,6 @@
 ;; ("student" :where #<function> :order-by :id :limit 2 :joins [[:id "subject" :sid]])
 ;; > (parse-select "werfwefw")
 ;; nil
-(defn make-where-function [& args] "lala")
-
-
-
 (defn parse-select [^String sel-string]
   (loop [res [] splitted-s (str/split sel-string #" ")]
     (match splitted-s
