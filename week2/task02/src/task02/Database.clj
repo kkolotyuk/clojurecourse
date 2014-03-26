@@ -13,8 +13,8 @@
    :methods [[InitDatabase [] void]
              [Select [String] String]]))
 
-(defn -InitDatabase [this]
+(defn ^static -InitDatabase [this]
   (load-initial-data))
 
-(defn -Select [this ^String query]
+(defn ^static -Select [this ^String query]
   (pr-str (perform-query query)))
