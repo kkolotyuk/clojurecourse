@@ -10,11 +10,11 @@
 
   ;; Hint: load-initial-data, pr-str, perform-query
   (:gen-class
-   :methods [[InitDatabase [] void]
-             [Select [String] String]]))
+   :methods [^:static [InitDatabase [] void]
+             ^:static [Select [String] String]]))
 
-(defn ^static -InitDatabase [this]
+(defn -InitDatabase []
   (load-initial-data))
 
-(defn ^static -Select [this ^String query]
+(defn -Select [^String query]
   (pr-str (perform-query query)))
