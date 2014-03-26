@@ -1,5 +1,7 @@
 (ns task02.Database
-  (:use [task02 db query])
+  (:require [task02.db :refer :all]
+            [task02.query :refer :all])
+
   ;; Объявить класс task02.Database с двумя статическими функциями доступными из Java:
   ;;  - void InitDatabase() - должна выполнять начальную загрузку данных используя функцию
   ;;       task02.db/load-initial-data
@@ -7,6 +9,12 @@
   ;;       (task02.query/perform-query) и возвращать результат в виде строки в формате EDN.
 
   ;; Hint: load-initial-data, pr-str, perform-query
-  ; :implement-me
-  )
+  (:gen-class
+   :methods [[InitDatabase [] void]
+             [Select [String] String]]))
 
+(defn -InitDatabase [this]
+  (load-initial-data))
+
+(defn -Select [this ^String query]
+  (pr-str (perform-query query)))

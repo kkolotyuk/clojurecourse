@@ -1,5 +1,6 @@
 (ns task02.query
-  (:use [task02 helpers db])
+  (:require [task02.helpers :refer :all]
+            [task02.db :refer :all])
   (:require [clojure.core.match :refer [match]]
             [clojure.string :as str]))
 
