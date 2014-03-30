@@ -72,26 +72,22 @@
     (match splitted-s
       [] res
 
-      [(_ :guard select?) table & _]
-      (recur (conj res table)
-             (vec (drop 2 splitted-s)))
+      [(_ :guard select?) table & rst]
+      (recur (conj res table) rst)
 
-      [(_ :guard limit? ) n & _]
-      (recur (concat res [:limit (parse-int n)])
-             (vec (drop 2 splitted-s)))
+      [(_ :guard limit? ) n & rst]
+      (recur (concat res [:limit (parse-int n)]) rst)
 
-      [(_ :guard where? ) op1 op op2 & _]
-      (recur (concat res [:where (make-where-function op1 op op2)])
-             (vec (drop 4 splitted-s)))
+      [(_ :guard where? ) op1 op op2 & rst]
+      (recur (concat res [:where (make-where-function op1 op op2)]) rst)
 
-      [(_ :guard order? ) (_ :guard by? ) column & _]
-      (recur (concat res [:order-by (keyword column)])
-             (vec (drop 3 splitted-s)))
+      [(_ :guard order? ) (_ :guard by? ) column & rst]
+      (recur (concat res [:order-by (keyword column)]) rst)
 
-      [(_ :guard join? ) other_table (_ :guard on? ) left_column "=" right_column & _]
+      [(_ :guard join? ) other_table (_ :guard on? ) left_column "=" right_column & rst]
       (recur (concat res
                      [:joins [[(keyword left_column) other_table (keyword right_column)]]])
-             (vec (drop 6 splitted-s)))
+             rst)
 
       :else nil)))
 

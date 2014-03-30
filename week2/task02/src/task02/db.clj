@@ -137,21 +137,18 @@
 ;;   (update student {:id 6} :where #(= (:year %) 1996))
 (defn update [table upd-map & {:keys [where]}]
   (let [k-table (keyword table)
-        mmerge #(merge % upd-map)
-        if-mmerge #(if (where %)
-                     (mmerge %)
-                     %)]
+        where (if where
+                where
+                (identity true))
+        mmerge #(if (where %)
+                  (merge % upd-map)
+                  %)]
     (dosync
       (if (contains? @tables k-table)
-        (if where
-          (alter tables
-                 update-in
-                 [k-table]
-                 #(map if-mmerge %))
-          (alter tables
-                 update-in
-                 [k-table]
-                 #(map mmerge %)))
+        (alter tables
+               update-in
+               [k-table]
+               #(map mmerge %))
         (throw (IllegalArgumentException. str("Cannot update in unknown table " table)))))))
 
 ;; Вставляет новую строку в указанную таблицу
