@@ -47,17 +47,18 @@
   (if-let [data (csv/read-csv (slurp (str name ".csv")))]
     (create-table name data)))
 
-(defn delete-table [table]
+(defn drop-table [table]
   (dosync
     (alter tables dissoc (keyword table))))
 
 ;;; Данная функция загружает начальные данные из файлов .csv
 ;;; и сохраняет их в изменяемой переменной tables
 (defn load-initial-data []
-  ;;; :implement-me может быть необходимо добавить что-то еще
-  (create-table-from-csv "student")
-  (create-table-from-csv "subject")
-  (create-table-from-csv "student_subject"))
+  (dosync
+    (ref-set tables {})
+    (create-table-from-csv "student")
+    (create-table-from-csv "subject")
+    (create-table-from-csv "student_subject")))
 
 ;; select-related functions...
 (defn where* [data condition-func]

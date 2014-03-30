@@ -39,3 +39,22 @@
       (is (= (:year (first rs)) 2000))
       )
     ))
+
+(deftest create-table-test
+  (load-initial-data)
+  (testing "create-table..."
+    (is (= (count @tables) 3))
+    (create-table-from-csv "lecturer")
+    (is (= (count @tables) 4))
+    (let [rs (q/perform-query "select lecturer")]
+      (is (not (empty? rs))))))
+
+(deftest drop-table-test
+  (load-initial-data)
+  (testing "drop table..."
+    (create-table-from-csv "lecturer")
+    (is (= (count @tables) 4))
+    (is (seq (get-table "lecturer")))
+    (drop-table "lecturer")
+    (is (= (count @tables) 3))
+    (is (not (seq (get-table "lecturer"))))))
