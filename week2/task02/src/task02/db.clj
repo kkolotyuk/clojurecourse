@@ -44,7 +44,7 @@
                 (map #(str-fields-to-int %))))))
 
 (defn create-table-from-csv [name]
-  (if-let [data (csv/read-csv (slurp (str name ".csv")))]
+  (when-let [data (csv/read-csv (slurp (str name ".csv")))]
     (create-table name data)))
 
 (defn drop-table [table]
@@ -112,18 +112,16 @@
 ;;   (delete student) -> []
 ;;   (delete student :where #(= (:id %) 1)) -> все кроме первой записи
 (defn delete [table & {:keys [where]}]
-  (let [k-table (keyword table)]
+  (let [k-table (keyword table)
+        upd (if where
+              (partial remove where)
+              (identity []))]
     (dosync
-      (if-let [_ (contains? @tables k-table)]
-        (if where
-          (alter tables
-                 update-in
-                 [k-table]
-                 (partial remove where))
-          (alter tables
-                 update-in
-                 [k-table]
-                 (identity [])))
+      (if (contains? @tables k-table)
+        (alter tables
+          update-in
+          [k-table]
+          upd)
         (throw (IllegalArgumentException. str("Cannot delete unknown table " table)))))))
 
 ;; Данная функция должна обновить данные в строках соответствующих указанному предикату
@@ -167,4 +165,4 @@
                [k-table]
                conj
                new-entry)
-        (throw (IllegalArgumentException. str("Cannot insert into unknown table " table)))))))
+        (throw (IllegalArgumentException. (str "Cannot insert into unknown table " table)))))))
