@@ -116,13 +116,13 @@
 ;;   (update student {:id 5})
 ;;   (update student {:id 6} :where #(= (:year %) 1996))
 (defn update [data upd-map & {:keys [where]}]
-  (let [mmerge #(merge % upd-map)
-        if-mmerge #(if (where %)
-                     (mmerge %)
-                     %)]
-    (if where
-      (swap! data (partial map if-mmerge))
-      (swap! data (partial map mmerge)))))
+  (let [where (if where
+                where
+                (identity true))
+        mmerge #(if (where %)
+                  (merge % upd-map)
+                  %)]
+    (swap! data (partial map mmerge))))
 
 
 ;; Вставляет новую строку в указанную таблицу
