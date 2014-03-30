@@ -8,7 +8,7 @@
 (deftest insert-test
   (load-initial-data)
   (testing "insertion..."
-    (insert student {:id 10 :surname "Test" :year 2000})
+    (insert "student" {:id 10 :surname "Test" :year 2000})
     (let [rs (q/perform-query "select student where id = 10")]
       (is (not (empty? rs)))
       (is (= (count rs) 1))
@@ -18,7 +18,7 @@
 (deftest delete-test
   (load-initial-data)
   (testing "deletion..."
-    (delete student :where (q/make-where-function "id" "=" "1"))
+    (delete "student" :where (q/make-where-function "id" "=" "1"))
     (let [rs (q/perform-query "select student where id = 1")]
       (is (empty? rs)))
     (is (= (count (q/perform-query "select student")) 2))
@@ -32,7 +32,7 @@
       (is (= (count rs) 1))
       (is (= (:year (first rs)) 1998))
       )
-    (update student {:year 2000} :where (q/make-where-function "id" "=" "1"))
+    (update "student" {:year 2000} :where (q/make-where-function "id" "=" "1"))
     (let [rs (q/perform-query "select student where id = 1")]
       (is (not (empty? rs)))
       (is (= (count rs) 1))

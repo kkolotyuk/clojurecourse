@@ -20,35 +20,44 @@
 (defn str-field-to-int [field rec]
   (update-in rec [field] parse-int))
 
-;; Место для хранения данных - используйте atom/ref/agent/...
-(def student (atom []))
-(def subject (atom []))
-(def student-subject (atom []))
+;; Заменяет строковые значения полей на целочисленные, если это возможно
+(defn str-fields-to-int [rec]
+  (into rec
+        (for [[k v] rec
+              :when (seq (re-matches #"\d+" v))]
+          [k (parse-int v)])))
 
-;; функция должна вернуть мутабельный объект используя его имя
+;; Место для хранения данных - используйте atom/ref/agent/...
+(def tables (ref {}))
+
+;; возвращает содержимое таблицы по строковому имени
 (defn get-table [^String tb-name]
-  (let [lname (str/lower-case tb-name)]
-    (cond
-     (= lname "student") student
-     (= lname "subject") subject
-     (= lname "student-subject") student-subject
-     )))
+  (let [tb-key (keyword (str/lower-case tb-name))]
+    (tb-key @tables)))
+
+(defn create-table [name data]
+  (dosync
+    (alter tables
+           assoc
+           (keyword name)
+           (->> (data-table data)
+                (map #(str-fields-to-int %))))))
+
+(defn create-table-from-csv [name]
+  (if-let [data (csv/read-csv (slurp (str name ".csv")))]
+    (create-table name data)))
+
+(defn delete-table [table]
+  (dosync
+    (alter tables dissoc (keyword table))))
 
 ;;; Данная функция загружает начальные данные из файлов .csv
-;;; и сохраняет их в изменяемых переменных student, subject, student-subject
+;;; и сохраняет их в изменяемой переменной tables
 (defn load-initial-data []
   ;;; :implement-me может быть необходимо добавить что-то еще
-  (reset! student
-         (->> (data-table (csv/read-csv (slurp "student.csv")))
-              (map #(str-field-to-int :id %))
-              (map #(str-field-to-int :year %))))
-  (reset! subject
-         (->> (data-table (csv/read-csv (slurp "subject.csv")))
-              (map #(str-field-to-int :id %))))
-  (reset! student-subject
-         (->> (data-table (csv/read-csv (slurp "student_subject.csv")))
-              (map #(str-field-to-int :subject_id %))
-              (map #(str-field-to-int :student_id %)))))
+  (create-table-from-csv "student")
+  (create-table-from-csv "subject")
+  (create-table-from-csv "student_subject"))
 
 ;; select-related functions...
 (defn where* [data condition-func]
@@ -77,7 +86,7 @@
   (if (empty? joins)
     data
     (let [[col1 data2 col2] (first joins)]
-      (recur (join* data col1 @(get-table data2) col2)
+      (recur (join* data col1 (get-table data2) col2)
              (next joins)))))
 
 ;; Данная функция аналогична функции в первом задании за исключением параметра :joins как описано выше.
@@ -85,7 +94,7 @@
 ;;   (select student-subject :joins [[:student_id "student" :id] [:subject_id "subject" :id]])
 ;;   (select student-subject :limit 2 :joins [[:student_id "student" :id] [:subject_id "subject" :id]])
 (defn select [data & {:keys [where limit order-by joins]}]
-  (-> @data
+  (-> data
       (perform-joins joins)
       (where* where)
       (order-by* order-by)
@@ -101,11 +110,21 @@
 ;; Примеры использования
 ;;   (delete student) -> []
 ;;   (delete student :where #(= (:id %) 1)) -> все кроме первой записи
-(defn delete [data & {:keys [where]}]
-  (if where
-    (swap! data (partial remove where))
-    (reset! data [])))
-(delete student :where #(= (:id %) 1))
+(defn delete [table & {:keys [where]}]
+  (let [k-table (keyword table)]
+    (dosync
+      (if-let [_ (contains? @tables k-table)]
+        (if where
+          (alter tables
+                 update-in
+                 [k-table]
+                 (partial remove where))
+          (alter tables
+                 update-in
+                 [k-table]
+                 (identity [])))
+        (throw (IllegalArgumentException. str("Cannot delete unknown table " table)))))))
+
 ;; Данная функция должна обновить данные в строках соответствующих указанному предикату
 ;; (или во всей таблице).
 ;;
@@ -115,15 +134,24 @@
 ;; Примеры использования:
 ;;   (update student {:id 5})
 ;;   (update student {:id 6} :where #(= (:year %) 1996))
-(defn update [data upd-map & {:keys [where]}]
-  (let [mmerge #(merge % upd-map)
+(defn update [table upd-map & {:keys [where]}]
+  (let [k-table (keyword table)
+        mmerge #(merge % upd-map)
         if-mmerge #(if (where %)
                      (mmerge %)
                      %)]
-    (if where
-      (swap! data (partial map if-mmerge))
-      (swap! data (partial map mmerge)))))
-
+    (dosync
+      (if (contains? @tables k-table)
+        (if where
+          (alter tables
+                 update-in
+                 [k-table]
+                 #(map if-mmerge %))
+          (alter tables
+                 update-in
+                 [k-table]
+                 #(map mmerge %)))
+        (throw (IllegalArgumentException. str("Cannot update in unknown table " table)))))))
 
 ;; Вставляет новую строку в указанную таблицу
 ;;
@@ -132,6 +160,13 @@
 ;;
 ;; Примеры использования:
 ;;   (insert student {:id 10 :year 2000 :surname "test"})
-(defn insert [data new-entry]
-  (swap! data conj new-entry))
-
+(defn insert [table new-entry]
+  (let [k-table (keyword table)]
+    (dosync
+      (if (contains? @tables k-table)
+        (alter tables
+               update-in
+               [k-table]
+               conj
+               new-entry)
+        (throw (IllegalArgumentException. str("Cannot insert into unknown table " table)))))))
