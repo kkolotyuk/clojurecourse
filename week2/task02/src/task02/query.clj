@@ -13,15 +13,12 @@
 (defn join? [s] (= (str/lower-case s) "join"))
 (defn on? [s] (= (str/lower-case s) "on"))
 
-(defn str->op [s]
-  (case s
-    "=" =
-    "!=" not=
-    "<" <
-    ">" >
-    "<=" <=
-    ">=" >=
-    nil))
+(def str->op {"=" =
+              "!=" not=
+              "<" <
+              ">" >
+              "<=" <=
+              ">=" >=})
 
 (defn make-where-function [column-string op-string value-string]
   (let [column (keyword column-string)
@@ -75,16 +72,16 @@
       [(_ :guard select?) table & rst]
       (recur (conj res table) rst)
 
-      [(_ :guard limit? ) n & rst]
+      [(_ :guard limit?) n & rst]
       (recur (concat res [:limit (parse-int n)]) rst)
 
-      [(_ :guard where? ) op1 op op2 & rst]
+      [(_ :guard where?) op1 op op2 & rst]
       (recur (concat res [:where (make-where-function op1 op op2)]) rst)
 
-      [(_ :guard order? ) (_ :guard by? ) column & rst]
+      [(_ :guard order?) (_ :guard by?) column & rst]
       (recur (concat res [:order-by (keyword column)]) rst)
 
-      [(_ :guard join? ) other_table (_ :guard on? ) left_column "=" right_column & rst]
+      [(_ :guard join?) other_table (_ :guard on?) left_column "=" right_column & rst]
       (recur (concat res
                      [:joins [[(keyword left_column) other_table (keyword right_column)]]])
              rst)
