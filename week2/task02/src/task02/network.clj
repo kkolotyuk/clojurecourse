@@ -2,7 +2,8 @@
   (:require [clojure.java.io :as io]
             [clojure.string :as str]
             [task02.helpers :refer :all]
-            [task02.query :refer :all])
+            [task02.query :refer :all]
+            [clojure.tools.logging :refer (info error)])
   (:import [java.net Socket ServerSocket InetAddress InetSocketAddress SocketTimeoutException]))
 
 ;; Объявить переменную для синхронизации между потоками. Воспользуйтесь promise
@@ -16,16 +17,15 @@
               wr (io/writer (.getOutputStream sock))]
     (binding [*in* rd *out* wr] ;; переопределить *in* & *out* чтобы они указывали на входной и выходной потоки сокета
       (try
-        (let [s (read-line)] ;; считать данные из переопределенного *in*
-          (if (= (str/lower-case s) "quit")
-            ;;; 1) сообщить основному потоку что мы завершаем выполнение.
-            ;;; для этого необходимо установить переменную should-be-finished в true
-            ;;;
-            ;;; 2) выполнить запрос при помощи perform-query и записать
-            ;;; результат в переопределенный *out*
-            (deliver should-be-finished true)
-            (prn (perform-query s))
-            ))
+        (loop [s (read-line)] ;; считать данные из переопределенного *in*
+          (info s)
+          (case s
+            "shutdown" (deliver should-be-finished true)
+            "quit" 1
+            nil 1
+            (do
+              (prn (perform-query s))
+              (recur (read-line)))))
         (catch Throwable ex
           (println "Exception: " ex))))))
 
@@ -35,6 +35,7 @@
   (try
     (let [^Socket sock (.accept server-sock)]
       ;; выполнить функцию handle-request в отдельном потоке
+      (println "Socket connected")
       (future (handle-request sock)))
     (catch SocketTimeoutException ex)
     (catch Throwable ex
