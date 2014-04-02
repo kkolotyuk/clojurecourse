@@ -22,14 +22,13 @@
     (with-open [sock sock
                 rd (io/reader (.getInputStream sock))
                 wr (io/writer (.getOutputStream sock))]
-      (binding [*in* rd *out* wr]
-        (doseq [query queries]
-          (println query))))))
+      (doseq [query queries]
+        (.write wr query 0 (count query))
+        (.newLine wr)))))
 
 (defn -main [& args]
   (let [port (if (empty? args)
                9997
                (parse-int (first args)))]
     (println "Starting client. Connecting to server on port " port)
-    ;(pcalls send-queries send-queries)
-    (send-queries)))
+    (pcalls send-queries send-queries)))
