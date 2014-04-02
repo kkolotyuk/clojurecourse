@@ -17,10 +17,10 @@
               wr (io/writer (.getOutputStream sock))]
     (try
       (loop [s (.readLine rd)] ;; считать данные из переопределенного *in*
-        (info s)
+        ;(info s)
         (case s
           "shutdown" (deliver should-be-finished true)
-          "quit" 1
+          "quit" (println "Socket quited")
           nil 1
           (let [res (pr-str (perform-query s))]
             (.write wr res 0 (count res))

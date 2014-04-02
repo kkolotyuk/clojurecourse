@@ -29,14 +29,14 @@
 (defn -main [& args]
   (println "Starting client. Connecting to server on port " 9997)
   (dotimes [_ 10] (future (send-queries))))
-;;  (pcalls
-;;     send-queries
-;;     send-queries
-;;     send-queries
-;;     send-queries
-;;     send-queries
-;;     send-queries
-;;     send-queries
-;;     send-queries
-;;     send-queries
-;;    send-queries))
+;;   (doall (pcalls
+;;           send-queries
+;;           send-queries
+;;           send-queries
+;;           send-queries
+;;           send-queries
+;;           send-queries
+;;           send-queries
+;;           send-queries
+;;           send-queries
+;;           send-queries)))

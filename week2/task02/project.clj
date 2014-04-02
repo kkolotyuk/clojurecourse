@@ -8,4 +8,5 @@
                  [org.clojure/core.match "0.2.1"]
                  [org.clojure/tools.logging "0.2.6"]]
   :aot [task02.Database task02.core]
-  :main task02.core)
+  :main task02.core
+  :resource-paths ["resourses"])
