@@ -15,19 +15,18 @@
   (with-open [sock sock
               rd (io/reader (.getInputStream sock))
               wr (io/writer (.getOutputStream sock))]
-    (binding [*in* rd *out* wr] ;; переопределить *in* & *out* чтобы они указывали на входной и выходной потоки сокета
-      (try
-        (loop [s (read-line)] ;; считать данные из переопределенного *in*
-          (info s)
-          (case s
-            "shutdown" (deliver should-be-finished true)
-            "quit" 1
-            nil 1
-            (do
-              (prn (perform-query s))
-              (recur (read-line)))))
-        (catch Throwable ex
-          (println "Exception: " ex))))))
+    (try
+      (loop [s (.readLine rd)] ;; считать данные из переопределенного *in*
+        (info s)
+        (case s
+          "shutdown" (deliver should-be-finished true)
+          "quit" 1
+          nil 1
+          (let [res (pr-str (perform-query s))]
+            (.write wr res 0 (count res))
+            (recur (.readLine rd)))))
+      (catch Throwable ex
+        (println "Exception: " ex)))))
 
 
 ;; Hint: future, deliver
