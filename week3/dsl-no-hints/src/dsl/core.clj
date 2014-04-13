@@ -7,7 +7,7 @@
 (def yesterday (do (.add cal Calendar/DATE -1) (.getTime cal)))
 (def tomorrow (do (.add cal Calendar/DATE 2) (.getTime cal)))
 
-(comment
+
   (defn one [] 1)
 
   ;; Примеры вызова
@@ -22,7 +22,7 @@
       (if (and (< d1 d2)
                (< d2 d3)
                (< d3 d4))
-        (println "DSL works correctly")))))
+        (println "DSL works correctly"))))
 
 (defn date? [d]
   (instance? java.util.Date d))
@@ -59,9 +59,9 @@
     (- n)))
 
 (defn smrt-op [date op n metric]
-  (doto (Calendar/getInstance)
-        (.setTime date)
-        (.add (metric-map metric) (op->int op n))))
+  (.getTime (doto (Calendar/getInstance)
+                  (.setTime date)
+                  (.add (metric-map metric) (op->int op n)))))
 
 (def comp-sym '#{< > = <= >=})
 
@@ -85,8 +85,10 @@
 (defmulti replace-expr disp)
 
 (defmethod replace-expr :collection [code]
-  (lazy-seq
-    (when (seq code)
+  (when (seq code)
+    (if (vector? code)
+      (vec (cons (replace-expr (first code))
+                 (replace-expr (rest code))))
       (cons (replace-expr (first code))
             (replace-expr (rest code))))))
 
@@ -103,9 +105,3 @@
 (defmacro with-datetime [& code]
   (let [replaced-code (map replace-expr code)]
     `(do ~@replaced-code)))
-
-(macroexpand-1 '(with-datetime (today - 2 days)))
-;;(macroexpand-1 '(with-datetime (> today yesterday)))
-(with-datetime (today - 2 days))
-(with-datetime (> today yesterday))
-(smrt-op today - 2 'days)
