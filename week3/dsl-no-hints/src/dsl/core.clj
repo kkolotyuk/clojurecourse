@@ -8,22 +8,6 @@
 (def tomorrow (do (.add cal Calendar/DATE 2) (.getTime cal)))
 
 
-  (defn one [] 1)
-
-  ;; Примеры вызова
-  (with-datetime
-    (if (> today tomorrow) (println "Time goes wrong"))
-    (if (<= yesterday today) (println "Correct"))
-    (let [six (+ 1 2 3)
-          d1 (today - 2 days)
-          d2 (today + 1 week)
-          d3 (today + six months)
-          d4 (today + (one) year)]
-      (if (and (< d1 d2)
-               (< d2 d3)
-               (< d3 d4))
-        (println "DSL works correctly"))))
-
 (defn date? [d]
   (instance? java.util.Date d))
 
@@ -86,17 +70,17 @@
 
 (defmethod replace-expr :collection [code]
   (when (seq code)
-    (if (vector? code)
-      (vec (cons (replace-expr (first code))
-                 (replace-expr (rest code))))
-      (cons (replace-expr (first code))
-            (replace-expr (rest code))))))
+    (let [res (cons (replace-expr (first code))
+                    (replace-expr (rest code)))]
+      (if (vector? code) ;; handle let case and other vectors in code
+        (vec res)
+        res))))
 
 (defmethod replace-expr :comp [code]
   `(smrt-comparison ~(first code) ~(second code) ~(last code)))
 
 (defmethod replace-expr :operation [code]
-  `(smrt-op ~(first code) ~(second code) ~(nth code 2) '~(last code)))
+  `(smrt-op ~(first code) '~(second code) ~(nth code 2) '~(last code)))
 
 (defmethod replace-expr :scalar [code] code)
 
