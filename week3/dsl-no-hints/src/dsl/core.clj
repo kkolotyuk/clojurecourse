@@ -7,7 +7,6 @@
 (def yesterday (do (.add cal Calendar/DATE -1) (.getTime cal)))
 (def tomorrow (do (.add cal Calendar/DATE 2) (.getTime cal)))
 
-
 (defn date? [d]
   (instance? java.util.Date d))
 
@@ -38,9 +37,7 @@
        (metric-sym (last code))))
 
 (defn op->int [op n]
-  (if (= op '+)
-    n
-    (- n)))
+  (if (= op '+) n (- n)))
 
 (defn smrt-op [date op n metric]
   (.getTime (doto (Calendar/getInstance)
