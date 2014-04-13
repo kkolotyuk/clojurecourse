@@ -36,26 +36,33 @@
     (op (.getTime x) (.getTime y))
     (op x y)))
 
-(declare replace-comp replace-symbol-expression)
-
-(defn replace-symbol-comp [code]
+(defn- disp [x]
   (cond
-    (not (seq? code)) code
-    (comp? code) '(smrt-comparison (first code) (second code) (nnext code))
-    :else (replace-comp code)))
+    (comp? x) :comp
+    (coll? x) :collection
+    :else :scalar))
 
-(defn replace-comp [code]
-  (if (seq code)
-    (cons (replace-symbol-comp (first code))
-          (replace-comp (rest code)))
-    ()))
+(defmulti replace-expr disp)
 
-(replace-comp '((and (< 1 2))))
+(defmethod replace-expr :collection [code]
+  (lazy-seq
+    (when (seq code)
+      (cons (replace-expr (first code))
+            (replace-expr (rest code))))))
+
+(defmethod replace-expr :comp [code]
+  `(smrt-comparison ~(first code) ~(second code) ~(last code)))
+
+(defmethod replace-expr :scalar [code] code)
 
 ;; Режим Бога -- никаких подсказок.
 ;; Вы его сами выбрали ;-)
 (defmacro with-datetime [& code]
-  )
+  (let [replaced-code (map replace-expr code)]
+    `(do ~@replaced-code)))
 
+(replace-expr '(< 1 2))
 
+(macroexpand-1 '(with-datetime (> today yesterday)))
 
+(with-datetime (> today yesterday))
