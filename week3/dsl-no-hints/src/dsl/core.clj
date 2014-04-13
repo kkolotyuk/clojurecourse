@@ -91,12 +91,10 @@
             (replace-expr (rest code))))))
 
 (defmethod replace-expr :comp [code]
-  (println :comp)
   `(smrt-comparison ~(first code) ~(second code) ~(last code)))
 
 (defmethod replace-expr :operation [code]
-  (println :operation)
-  `(smrt-op ~(first code) ~(second code) ~(nth code 2) ~(last code)))
+  `(smrt-op ~(first code) ~(second code) ~(nth code 2) '~(last code)))
 
 (defmethod replace-expr :scalar [code] code)
 
@@ -106,13 +104,8 @@
   (let [replaced-code (map replace-expr code)]
     `(do ~@replaced-code)))
 
-;;(replace-expr '(> today yesterday))
-;;(disp '(today + 1 day))
-;;(replace-expr '(today + 1 day))
-
-(defn replace-expr-1 [code]
-  `(smrt-op ~(first code) ~(second code) ~(nth code 2) ~(last code)))
-(replace-expr-1 '(today + 1 day))
-
-;;(macroexpand-1 '(with-datetime (today - 2 days)))
+(macroexpand-1 '(with-datetime (today - 2 days)))
 ;;(macroexpand-1 '(with-datetime (> today yesterday)))
+(with-datetime (today - 2 days))
+(with-datetime (> today yesterday))
+(smrt-op today - 2 'days)
