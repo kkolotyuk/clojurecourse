@@ -56,33 +56,29 @@
     (op (.getTime x) (.getTime y))
     (op x y)))
 
-(defn- disp [x]
+(defn replace-expr [code]
   (cond
-    (comp? x) :comp
-    (op? x) :operation
-    (coll? x) :collection
-    :else :scalar))
+    (comp? code) `(smrt-comparison ~(first code) ~(second code) ~(last code))
+    (op? code) `(smrt-op ~(first code) '~(second code) ~(nth code 2) '~(last code))
+    :else code))
 
-(defmulti replace-expr disp)
-
-(defmethod replace-expr :collection [code]
-  (when (seq code)
-    (let [res (cons (replace-expr (first code))
-                    (replace-expr (rest code)))]
-      (if (vector? code) ;; handle let case and other vectors in code
-        (vec res)
-        res))))
-
-(defmethod replace-expr :comp [code]
-  `(smrt-comparison ~(first code) ~(second code) ~(last code)))
-
-(defmethod replace-expr :operation [code]
-  `(smrt-op ~(first code) '~(second code) ~(nth code 2) '~(last code)))
-
-(defmethod replace-expr :scalar [code] code)
+(defn replace-expr-walk [code]
+  (postwalk replace-expr code))
 
 ;; Режим Бога -- никаких подсказок.
 ;; Вы его сами выбрали ;-)
 (defmacro with-datetime [& code]
-  (let [replaced-code (map replace-expr code)]
+  (let [replaced-code (replace-expr-walk code)]
     `(do ~@replaced-code)))
+
+(macroexpand-1 '(with-datetime
+            (if (> today tomorrow) (println "Time goes wrong"))
+            (if (<= yesterday today) (println "Correct"))
+            (let [six (+ 1 2 3)
+                  d1 (today - 2 days)
+                  d2 (today + 1 week)
+                  d3 (today + six months)
+                  d4 (today + (one) year)]
+              (and (< d1 d2)
+                   (< d2 d3)
+                   (< d3 d4))))  )
