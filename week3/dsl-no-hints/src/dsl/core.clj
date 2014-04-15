@@ -70,15 +70,3 @@
 (defmacro with-datetime [& code]
   (let [replaced-code (replace-expr-walk code)]
     `(do ~@replaced-code)))
-
-(macroexpand-1 '(with-datetime
-            (if (> today tomorrow) (println "Time goes wrong"))
-            (if (<= yesterday today) (println "Correct"))
-            (let [six (+ 1 2 3)
-                  d1 (today - 2 days)
-                  d2 (today + 1 week)
-                  d3 (today + six months)
-                  d4 (today + (one) year)]
-              (and (< d1 d2)
-                   (< d2 d3)
-                   (< d3 d4))))  )
