@@ -12,10 +12,34 @@
 
 ;; hint: сделайте extenal id из feature :id
 (def schema [
+  { :db/ident       :series
+    :db/id          (d/tempid :db.part/db)}
+
+  { :db/ident       :episode
+    :db/id          (d/tempid :db.part/db)}
+
+  { :db/ident       :movie
+    :db/id          (d/tempid :db.part/db)}
+
+  { :db/ident       :video
+    :db/id          (d/tempid :db.part/db)}
+
+  { :db/ident       :tv-movie
+    :db/id          (d/tempid :db.part/db)}
+
+  { :db/ident       :videogame
+    :db/id          (d/tempid :db.part/db)}
+
   { :db/ident       :feature/id
     :db/valueType   :db.type/string
     :db/cardinality :db.cardinality/one
     :db/unique      true
+    :db/id          (d/tempid :db.part/db)
+    :db.install/_attribute :db.part/db }
+
+  { :db/ident       :feature/type
+    :db/valueType   :db.type/ref
+    :db/cardinality :db.cardinality/one
     :db/id          (d/tempid :db.part/db)
     :db.install/_attribute :db.part/db }
 
@@ -77,6 +101,9 @@
   (with-open [rdr (io/reader "features.2014.edn")]
     (doseq [line (line-seq rdr)
             :let [feature (edn/read-string line)]]
+      (d/transact conn [{ :db/id (d/tempid :db.part/user)
+                          :feature/id (:id feature)
+                          :feature/type (:type feature) }])
       :TODO)))
 
 ;; Найти все пары entity указанных типов с совпадающими названиями
