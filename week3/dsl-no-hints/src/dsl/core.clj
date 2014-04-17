@@ -58,8 +58,14 @@
 
 (defn replace-expr [code]
   (cond
-    (comp? code) `(smrt-comparison ~(first code) ~(second code) ~(last code))
-    (op? code) `(smrt-op ~(first code) '~(second code) ~(nth code 2) '~(last code))
+    (comp? code)
+    (let [[op val1 val2] code]
+      `(smrt-comparison ~op ~val1 ~val2))
+
+    (op? code)
+    (let [[date op n metric] code]
+      `(smrt-op ~date '~op ~n '~metric))
+
     :else code))
 
 (defn replace-expr-walk [code]
