@@ -33,7 +33,7 @@
   { :db/ident       :feature/id
     :db/valueType   :db.type/string
     :db/cardinality :db.cardinality/one
-    :db/unique      true
+    :db/unique      :db.unique/identity
     :db/id          (d/tempid :db.part/db)
     :db.install/_attribute :db.part/db }
 
@@ -62,7 +62,7 @@
     :db.install/_attribute :db.part/db }
 
   { :db/ident       :feature/series
-    :db/valueType   :db.type/string
+    :db/valueType   :db.type/ref
     :db/cardinality :db.cardinality/one
     :db/id          (d/tempid :db.part/db)
     :db.install/_attribute :db.part/db }
@@ -84,7 +84,13 @@
   (d/delete-database db-url)
   (d/create-database db-url)
   (alter-var-root #'conn (constantly (d/connect db-url)))
-  @(d/transact @conn schema))
+  @(d/transact conn schema))
+
+(reset)
+
+
+(defn- remove-nil-values [m]
+  (remove #(nil? (second %)) m))
 
 ;; Формат файла:
 ;; { :type  =>   :series | :episode | :movie | :video | :tv-movie | :videogame
@@ -100,26 +106,52 @@
 (defn import []
   (with-open [rdr (io/reader "features.2014.edn")]
     (doseq [line (line-seq rdr)
-            :let [feature (edn/read-string line)]]
-      (d/transact conn [{ :db/id (d/tempid :db.part/user)
-                          :feature/id (:id feature)
-                          :feature/type (:type feature) }])
-      :TODO)))
+            :let [feature (edn/read-string line)
+                  nil-entity { :db/id (d/tempid :db.part/user)
+                               :feature/id (:id feature)
+                               :feature/type (:type feature)
+                               :feature/title (:title feature)
+                               :feature/year (:year feature)
+                               :feature/endyear (:endyear feature)
+                               :feature/series
+                                 (when-let [series (:series feature)] [:feature/id series])
+                               :feature/season (:season feature)
+                               :feature/episode (:episode feature) }
+                  entity (into {} (remove-nil-values nil-entity))]]
+        @(d/transact conn [entity]))))
 
+(import)
+
+(d/q '[:find ?id
+       :where
+         [?id :feature/type _]]
+     (db))
 ;; Найти все пары entity указанных типов с совпадающими названиями
 ;; Например, фильм + игра с одинаковым title
 ;; Вернуть #{[id1 id2], ...}
 ;; hint: data patterns
 
 (defn siblings [db type1 type2]
-  :TODO)
+  (d/q '[:find ?id1 ?id2
+         :where
+           [?id1 :feature/title ?t]
+           [?id1 :feature/type type1]
+           [?id2 :feature/title ?t]
+           [?id2 :feature/type type2]]
+       db))
+
+;;(siblings (db) :movie :videogame)
 
 ;; Найти сериал(ы) с самым ранним годом начала
 ;; Вернуть #{[id year], ...}
 ;; hint: aggregates
 
 (defn oldest-series [db]
-  :TODO)
+  (d/q '[:find ?id (min ?year)
+         :where
+           [?id :feature/year ?year]
+           [?id :feature/type :series]]
+       db))
 
 ;; Найти 3 сериала с наибольшим количеством серий в сезоне
 ;; Вернуть [[id season series-count], ...]
