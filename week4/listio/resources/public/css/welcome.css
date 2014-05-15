@@ -1,0 +1,76 @@
+.background-welcome {
+  background-image: url("pat-bk.png");
+  background-repeat: repeat;
+  height: 300px;
+}
+.background-welcome .welcome {
+  width: 940px;
+  margin: 0 auto;
+}
+.background-welcome .welcome .text {
+  color: #FFFFFF;
+  text-align: center;
+  font-family: 'Helvetica';
+  font-size: 20px;
+  padding-top: 50px;
+  line-height: 150%;
+}
+.background-welcome .welcome .references {
+  width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  height: 83px;
+  line-height: 83px;
+  color: #FFFFFF;
+  text-align: center;
+  font-family: 'Helvetica';
+  font-size: 28px;
+}
+.background-welcome .welcome .references .github {
+  background: #ECECEC;
+  background: -moz-linear-gradient(top, #ececec, white);
+  background: -webkit-gradient(linear, left top, left bottom, from(#ececec), to(white));
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr=#ECECEC,endColorstr=#FFFFFF,GradientType=0);
+  zoom: 1;
+  background: linear-gradient(top, #ececec, white);
+  border-radius: 5px;
+  display: table-cell;
+  width: 327px;
+  height: 83px;
+  text-decoration: none;
+  color: #000000;
+}
+.background-welcome .welcome .references .github .git {
+  margin-left: 5px;
+  border-bottom: 1px solid #000000;
+  font-weight: bold;
+}
+.background-welcome .welcome .references .or {
+  line-height: 1;
+  display: table-cell;
+  vertical-align: middle;
+  padding-left: 14px;
+}
+.background-welcome .welcome .references .text-ref {
+  padding-left: 14px;
+  vertical-align: middle;
+  line-height: 1.3;
+  display: table-cell;
+  text-align: left;
+}
+.background-welcome .welcome .references .testboard {
+  margin-left: 6px;
+  border-bottom: 1px solid #FFFFFF;
+  text-decoration: none;
+  color: #FFFFFF;
+}
+.text-logo a {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 10px;
+}
+.text-logo a img {
+  float: right;
+  vertical-align: middle;
+}

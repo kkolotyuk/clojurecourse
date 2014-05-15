@@ -1,10 +1,6 @@
-(ns listio.core)
+(ns listio.core
+  (:require [compojure.core :refer :all]))
 
-(defn handler [request]
-  {:status 200
-   :headers {"Content-Type" "text/plain"}
-   :body "Hello, World!"})
-
-(def app handler)
-
+(defroutes app
+  (GET "/" [] "<h1>Hello World</h1>"))
 
