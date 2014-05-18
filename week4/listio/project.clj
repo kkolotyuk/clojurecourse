@@ -6,5 +6,5 @@
   :dependencies [[org.clojure/clojure "1.6.0"]
                  [ring "1.2.2"]
                  [compojure "1.1.8"]]
-  :ring {:handler listio.core/app}
+  :ring {:handler listio.server/app}
   :target-path "target/%s")
