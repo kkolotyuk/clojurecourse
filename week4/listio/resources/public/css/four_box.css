@@ -48,7 +48,7 @@ body .container .user-selector .btn-update, body .container .user-selector .btn-
   padding: 0;
   border: 0;
   background: #FFFFFF;
-  background-image: url("sync.png");
+  background-image: url("../img/sync.png");
   background-repeat: no-repeat;
   background-position: 0px center;
   cursor: pointer;
@@ -219,20 +219,20 @@ body .container .container-boxs .test ul.test {
 }
 
 .violet {
-  background-image: url("pat_violet.png");
+  background-image: url("../img/pat_violet.png");
   background-repeat: repeat;
 }
 
 .green {
   border-right: 1px solid #ADADAD;
-  background-image: url("pat_green.png");
+  background-image: url("../img/pat_green.png");
   background-repeat: repeat;
 }
 
 .red {
   border-bottom: 1px solid #ADADAD;
   border-left: 1px solid #ADADAD;
-  background-image: url("pat_red.png");
+  background-image: url("../img/pat_red.png");
   background-repeat: repeat;
 }
 

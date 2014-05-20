@@ -2,8 +2,9 @@
   (:require [enfocus.core :as ef])
   (:require-macros [enfocus.macros :as em]))
 
-(defn start []
-  (ef/at js/document
-    ["body"] (ef/content "Hello enfocus!")))
+(em/defsnippet login-header :compiled "public/prototype/login.html" ["body"] [])
 
-(set! (.-onload js/window) start)
+(em/defaction init []
+    ["body"] (ef/content (login-header)))
+
+(set! (.-onload js/window) init)
