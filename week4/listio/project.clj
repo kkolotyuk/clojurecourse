@@ -7,7 +7,8 @@
                  [ring "1.2.2"]
                  [compojure "1.1.8"]
                  [org.clojure/clojurescript "0.0-2202"]
-                 [enfocus "2.1.0-SNAPSHOT"]]
+                 [enfocus "2.1.0-SNAPSHOT"]
+                 [tentacles "0.2.5"]]
   :profiles {:dev {:plugins [[lein-cljsbuild "1.0.3"]]}}
   :ring {:handler listio.server/app}
   :target-path "target/%s"
