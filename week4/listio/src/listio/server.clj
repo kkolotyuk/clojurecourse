@@ -7,7 +7,12 @@
                                         response]]
             [tentacles.core :refer [api-call]]
             [clj-oauth2.client :as oauth2]
-            [ring.middleware.json :refer [wrap-json-response]]))
+            [ring.middleware.edn :refer [wrap-edn-params]]))
+
+(defn edn-response [data & [status]]
+  {:status (or status 200)
+   :headers {"Content-Type" "application/edn"}
+   :body (pr-str data)})
 
 (def github-oauth2
   {:authorization-uri "https://github.com/login/oauth/authorize"
@@ -30,10 +35,10 @@
   (GET "/callback" request (let [access-token (fetch-access-token (:params request))
                                  response (redirect "/")]
                              (assoc-in response [:session :access-token] access-token)))
-  (GET "/is-authenticated" {{access-token :access-token} :session} (response {:access-token (not (nil? access-token))}))
+  (GET "/is-authenticated" {{access-token :access-token} :session} (edn-response {:authenticated? (not (nil? access-token))}))
   (route/resources "/"))
 
 (def app
   (-> handler
       site
-      wrap-json-response))
+      wrap-edn-params))
