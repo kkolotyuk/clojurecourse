@@ -1,10 +1,13 @@
 (ns my.namespace
-  (:require [enfocus.core :as ef])
+  (:require [enfocus.core :as ef]
+            [ajax.core :refer [GET]])
   (:require-macros [enfocus.macros :as em]))
 
-(em/defsnippet login-header :compiled "public/prototype/login.html" ["body"] [])
+(em/defsnippet header :compiled "public/prototype/login.html" ["#header"] [])
+(em/defsnippet login :compiled "public/prototype/login.html" ["#login-form"] [])
 
 (em/defaction init []
-    ["body"] (ef/content (login-header)))
+    ["body"] (ef/do-> (ef/content (header))
+                      (ef/append (login))))
 
 (set! (.-onload js/window) init)
