@@ -5,6 +5,11 @@
 
 (em/defsnippet header :compiled "public/prototype/login.html" ["#header"] [])
 (em/defsnippet login-form :compiled "public/prototype/login.html" ["#login-form"] [])
+(em/defsnippet menu :compiled "public/prototype/main.html" ["#menu"]
+  [avatar-url github-url name]
+  ".avatar" (ef/set-attr :src avatar-url)
+  ".username" (ef/do-> (ef/set-attr :href github-url)
+                       (ef/content name)))
 
 (em/defaction login []
     ["body"] (ef/do-> (ef/content (header))

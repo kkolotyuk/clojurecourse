@@ -39657,40 +39657,58 @@ goog.require("ajax.core");
 goog.require("enfocus.core");
 goog.require("enfocus.core");
 if (cljs.core.deref.call(null, enfocus.core.tpl_cache).call(null, 'compiledpublic/prototype/login.html["#header"]') == null) {
-  var vec__15115_15120 = enfocus.core.replace_ids.call(null, "en5581_", '\x3cdiv id\x3d"header" class\x3d"header"\x3e \n \x3ca href\x3d"/"\x3e \x3cimg alt\x3d"Logo" height\x3d"59" src\x3d"/img/logo.png" width\x3d"163" /\x3e \x3c/a\x3e \n \x3cdiv class\x3d"text-logo"\x3e\n   YOUR DAILY PROJECT FIGHT PLAN\n  \x3ca href\x3d"https://twitter.com/listio_us" target\x3d"_blank"\x3e\x3cimg alt\x3d"twitter" height\x3d"45" src\x3d"/img/twitter.jpg" width\x3d"45" /\x3e\x3c/a\x3e \n \x3c/div\x3e \n\x3c/div\x3e');
-  var sym__4515__auto___15121 = cljs.core.nth.call(null, vec__15115_15120, 0, null);
-  var txt__4516__auto___15122 = cljs.core.nth.call(null, vec__15115_15120, 1, null);
-  cljs.core.swap_BANG_.call(null, enfocus.core.tpl_cache, cljs.core.assoc, 'compiledpublic/prototype/login.html["#header"]', new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [sym__4515__auto___15121, txt__4516__auto___15122], null));
+  var vec__5582_5587 = enfocus.core.replace_ids.call(null, "en5581_", '\x3cdiv id\x3d"header" class\x3d"header"\x3e \n \x3ca href\x3d"/"\x3e \x3cimg alt\x3d"Logo" height\x3d"59" src\x3d"/img/logo.png" width\x3d"163" /\x3e \x3c/a\x3e \n \x3cdiv class\x3d"text-logo"\x3e\n   YOUR DAILY PROJECT FIGHT PLAN\n  \x3ca href\x3d"https://twitter.com/listio_us" target\x3d"_blank"\x3e\x3cimg alt\x3d"twitter" height\x3d"45" src\x3d"/img/twitter.jpg" width\x3d"45" /\x3e\x3c/a\x3e \n \x3c/div\x3e \n\x3c/div\x3e');
+  var sym__4515__auto___5588 = cljs.core.nth.call(null, vec__5582_5587, 0, null);
+  var txt__4516__auto___5589 = cljs.core.nth.call(null, vec__5582_5587, 1, null);
+  cljs.core.swap_BANG_.call(null, enfocus.core.tpl_cache, cljs.core.assoc, 'compiledpublic/prototype/login.html["#header"]', new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [sym__4515__auto___5588, txt__4516__auto___5589], null));
 } else {
 }
 my.namespace.header = function header() {
-  var vec__15119 = function() {
+  var vec__5586 = function() {
     return enfocus.core.get_cached_dom.call(null, 'compiledpublic/prototype/login.html["#header"]');
   }.call(null);
-  var id_sym15116 = cljs.core.nth.call(null, vec__15119, 0, null);
-  var pnod15117 = cljs.core.nth.call(null, vec__15119, 1, null);
-  var pnod15117__$1 = enfocus.core.create_hidden_dom.call(null, pnod15117);
-  enfocus.core.i_at.call(null, id_sym15116, pnod15117__$1);
-  enfocus.core.reset_ids.call(null, id_sym15116, pnod15117__$1);
-  return enfocus.core.remove_node_return_child.call(null, pnod15117__$1);
+  var id_sym5583 = cljs.core.nth.call(null, vec__5586, 0, null);
+  var pnod5584 = cljs.core.nth.call(null, vec__5586, 1, null);
+  var pnod5584__$1 = enfocus.core.create_hidden_dom.call(null, pnod5584);
+  enfocus.core.i_at.call(null, id_sym5583, pnod5584__$1);
+  enfocus.core.reset_ids.call(null, id_sym5583, pnod5584__$1);
+  return enfocus.core.remove_node_return_child.call(null, pnod5584__$1);
 };
 if (cljs.core.deref.call(null, enfocus.core.tpl_cache).call(null, 'compiledpublic/prototype/login.html["#login-form"]') == null) {
-  var vec__15123_15128 = enfocus.core.replace_ids.call(null, "en5590_", '\x3cdiv id\x3d"login-form" class\x3d"background-welcome"\x3e \n \x3cdiv class\x3d"welcome"\x3e \n  \x3cdiv class\x3d"text"\x3e\n    Sometimes it\'s not clear what your first task of the day should be or what\'s next.\n   \x3cbr /\x3e Split your issues into 4 categories and get natural vision of what should be done today. \n  \x3c/div\x3e \n  \x3cdiv class\x3d"references"\x3e \n   \x3ca class\x3d"github" href\x3d"/authorize"\x3e Login via\x3cspan class\x3d"git"\x3eGithub\x3c/span\x3e \x3c/a\x3e \n   \x3cdiv class\x3d"or"\x3e\n    or\n   \x3c/div\x3e \n   \x3cdiv class\x3d"text-ref"\x3e\n     play with\n    \x3ca class\x3d"testboard" href\x3d"#container"\x3etestboard\x3c/a\x3e \u2193\n    \x3cbr /\x3e by dragging some issues \n   \x3c/div\x3e \n  \x3c/div\x3e \n \x3c/div\x3e \n\x3c/div\x3e');
-  var sym__4515__auto___15129 = cljs.core.nth.call(null, vec__15123_15128, 0, null);
-  var txt__4516__auto___15130 = cljs.core.nth.call(null, vec__15123_15128, 1, null);
-  cljs.core.swap_BANG_.call(null, enfocus.core.tpl_cache, cljs.core.assoc, 'compiledpublic/prototype/login.html["#login-form"]', new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [sym__4515__auto___15129, txt__4516__auto___15130], null));
+  var vec__5591_5596 = enfocus.core.replace_ids.call(null, "en5590_", '\x3cdiv id\x3d"login-form" class\x3d"background-welcome"\x3e \n \x3cdiv class\x3d"welcome"\x3e \n  \x3cdiv class\x3d"text"\x3e\n    Sometimes it\'s not clear what your first task of the day should be or what\'s next.\n   \x3cbr /\x3e Split your issues into 4 categories and get natural vision of what should be done today. \n  \x3c/div\x3e \n  \x3cdiv class\x3d"references"\x3e \n   \x3ca class\x3d"github" href\x3d"/authorize"\x3e Login via\x3cspan class\x3d"git"\x3eGithub\x3c/span\x3e \x3c/a\x3e \n   \x3cdiv class\x3d"or"\x3e\n    or\n   \x3c/div\x3e \n   \x3cdiv class\x3d"text-ref"\x3e\n     play with\n    \x3ca class\x3d"testboard" href\x3d"#container"\x3etestboard\x3c/a\x3e \u2193\n    \x3cbr /\x3e by dragging some issues \n   \x3c/div\x3e \n  \x3c/div\x3e \n \x3c/div\x3e \n\x3c/div\x3e');
+  var sym__4515__auto___5597 = cljs.core.nth.call(null, vec__5591_5596, 0, null);
+  var txt__4516__auto___5598 = cljs.core.nth.call(null, vec__5591_5596, 1, null);
+  cljs.core.swap_BANG_.call(null, enfocus.core.tpl_cache, cljs.core.assoc, 'compiledpublic/prototype/login.html["#login-form"]', new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [sym__4515__auto___5597, txt__4516__auto___5598], null));
 } else {
 }
 my.namespace.login_form = function login_form() {
-  var vec__15127 = function() {
+  var vec__5595 = function() {
     return enfocus.core.get_cached_dom.call(null, 'compiledpublic/prototype/login.html["#login-form"]');
   }.call(null);
-  var id_sym15124 = cljs.core.nth.call(null, vec__15127, 0, null);
-  var pnod15125 = cljs.core.nth.call(null, vec__15127, 1, null);
-  var pnod15125__$1 = enfocus.core.create_hidden_dom.call(null, pnod15125);
-  enfocus.core.i_at.call(null, id_sym15124, pnod15125__$1);
-  enfocus.core.reset_ids.call(null, id_sym15124, pnod15125__$1);
-  return enfocus.core.remove_node_return_child.call(null, pnod15125__$1);
+  var id_sym5592 = cljs.core.nth.call(null, vec__5595, 0, null);
+  var pnod5593 = cljs.core.nth.call(null, vec__5595, 1, null);
+  var pnod5593__$1 = enfocus.core.create_hidden_dom.call(null, pnod5593);
+  enfocus.core.i_at.call(null, id_sym5592, pnod5593__$1);
+  enfocus.core.reset_ids.call(null, id_sym5592, pnod5593__$1);
+  return enfocus.core.remove_node_return_child.call(null, pnod5593__$1);
+};
+if (cljs.core.deref.call(null, enfocus.core.tpl_cache).call(null, 'compiledpublic/prototype/main.html["#menu"]') == null) {
+  var vec__5600_5605 = enfocus.core.replace_ids.call(null, "en5599_", '\x3cdiv id\x3d"menu" class\x3d"background-toolbar"\x3e \n \x3cdiv class\x3d"toolbar"\x3e \n  \x3cdiv class\x3d"user table" username\x3d"kkolotyuk"\x3e \n   \x3ca class\x3d"table-cell user-link"\x3e \x3cimg alt\x3d"1401618?" class\x3d"avatar" src\x3d"https://avatars.githubusercontent.com/u/1401618?" /\x3e \x3c/a\x3e \n   \x3ca class\x3d"username table-cell" href\x3d"https://github.com/kkolotyuk"\x3ekkolotyuk\x3c/a\x3e \n   \x3ca class\x3d"table-cell logout" href\x3d"/logout"\x3eLogout\x3c/a\x3e \n  \x3c/div\x3e \n  \x3cdiv class\x3d"left-side"\x3e \n   \x3cdiv class\x3d"select-repo"\x3e\n     http://github.com/\n    \x3cinput class\x3d"text-repo js-submit-by-enter" id\x3d"repo" name\x3d"repo" placeholder\x3d"username / repository" type\x3d"text" /\x3e\n    \x3cinput class\x3d"btn-switch" id\x3d"btn-switch-id" name\x3d"commit" type\x3d"submit" value\x3d"Choose project" /\x3e \n   \x3c/div\x3e \n  \x3c/div\x3e \n \x3c/div\x3e \n\x3c/div\x3e');
+  var sym__4515__auto___5606 = cljs.core.nth.call(null, vec__5600_5605, 0, null);
+  var txt__4516__auto___5607 = cljs.core.nth.call(null, vec__5600_5605, 1, null);
+  cljs.core.swap_BANG_.call(null, enfocus.core.tpl_cache, cljs.core.assoc, 'compiledpublic/prototype/main.html["#menu"]', new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [sym__4515__auto___5606, txt__4516__auto___5607], null));
+} else {
+}
+my.namespace.menu = function menu(avatar_url, github_url, name) {
+  var vec__5604 = function() {
+    return enfocus.core.get_cached_dom.call(null, 'compiledpublic/prototype/main.html["#menu"]');
+  }.call(null);
+  var id_sym5601 = cljs.core.nth.call(null, vec__5604, 0, null);
+  var pnod5602 = cljs.core.nth.call(null, vec__5604, 1, null);
+  var pnod5602__$1 = enfocus.core.create_hidden_dom.call(null, pnod5602);
+  enfocus.core.i_at.call(null, id_sym5601, pnod5602__$1, ".avatar", enfocus.core.set_attr.call(null, new cljs.core.Keyword(null, "src", "src", 1014018390), avatar_url), ".username", enfocus.core.do__GT_.call(null, enfocus.core.set_attr.call(null, new cljs.core.Keyword(null, "href", "href", 1017115293), github_url), enfocus.core.content.call(null, name)));
+  enfocus.core.reset_ids.call(null, id_sym5601, pnod5602__$1);
+  return enfocus.core.remove_node_return_child.call(null, pnod5602__$1);
 };
 my.namespace.login = function login() {
   return enfocus.core.at.call(null, document, new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, ["body"], null), enfocus.core.do__GT_.call(null, enfocus.core.content.call(null, my.namespace.header.call(null)), enfocus.core.append.call(null, my.namespace.login_form.call(null))));
