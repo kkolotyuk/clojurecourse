@@ -7,7 +7,7 @@
                                         response]]
             [tentacles.core :refer [api-call]]
             [clj-oauth2.client :as oauth2]
-            [ring.middleware.edn :refer [wrap-edn-params]]))
+            [shoreleave.middleware.rpc :refer [defremote wrap-rpc]]))
 
 (defn edn-response [data & [status]]
   {:status (or status 200)
@@ -29,16 +29,25 @@
 (defn fetch-access-token [params]
   (oauth2/get-access-token github-oauth2 params auth-req))
 
+(defremote remote-fn [arg1] (str arg1))
+
 (defroutes handler
   (GET "/" [] (resource-response "index.html" {:root "public"}))
   (GET "/authorize" [] (redirect (:uri auth-req)))
   (GET "/callback" request (let [access-token (fetch-access-token (:params request))
                                  response (redirect "/")]
                              (assoc-in response [:session :access-token] access-token)))
-  (GET "/is-authenticated" {{access-token :access-token} :session} (edn-response {:authenticated? (not (nil? access-token))}))
+;;   (GET "/is-authenticated" {{access-token :access-token} :session} (edn-response {:authenticated? (not (nil? access-token))}))
   (route/resources "/"))
+
+(defn wrap-access-token-param [handler & [opts]]
+  "Add :access-token from session to params of request to get it in remotes"
+  (fn [{{access-token :access-token} :session :as request}]
+    (handler (assoc-in request [:params :access-token] access-token))))
 
 (def app
   (-> handler
+      wrap-rpc
       site
-      wrap-edn-params))
+;;       wrap-access-token-param
+      ))

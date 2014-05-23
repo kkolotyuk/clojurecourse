@@ -1,7 +1,8 @@
 (ns my.namespace
+  (:require-macros [enfocus.macros :as em]
+                   [shoreleave.remotes.macros :as macros])
   (:require [enfocus.core :as ef]
-            [ajax.core :refer [GET]])
-  (:require-macros [enfocus.macros :as em]))
+            [shoreleave.remotes.http-rpc :as rpc]))
 
 (em/defsnippet header :compiled "public/prototype/login.html" ["#header"] [])
 (em/defsnippet login-form :compiled "public/prototype/login.html" ["#login-form"] [])
@@ -27,8 +28,12 @@
     (main)
     (login)))
 
-(defn ^:export start []
-  (GET "/is-authenticated"
-       {:handler show-start}))
+;; (defn ^:export start []
+;;   (GET "/is-authenticated"
+;;        {:handler show-start}))
 
-(set! (.-onload js/window) start)
+(defn ^:export start[]
+  (rpc/remote-callback :remote-fn ["parampampam"] #(js/alert %)))
+
+;; (set! (.-onload js/window) start)
+(set! (.-onload js/window) #(em/wait-for-load (start)))
