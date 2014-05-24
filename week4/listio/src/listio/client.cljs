@@ -15,6 +15,8 @@
                        (ef/content username))
   ".logout" (events/listen :click logout))
 
+(em/defsnippet hint :compiled "public/prototype/main.html" [".hint"] [])
+
 (defn ^:export login []
   (ef/at "body"
          (ef/do-> (ef/content (header))
@@ -27,7 +29,8 @@
 (defn ^:export main [avatar-url github-url username]
   (ef/at "body"
          (ef/do-> (ef/content (header))
-                  (ef/append (menu avatar-url github-url username)))))
+                  (ef/append (menu avatar-url github-url username))
+                  (ef/append (hint)))))
 
 (defn ^:export console-handler [data]
   (.log js/console (str data)))
