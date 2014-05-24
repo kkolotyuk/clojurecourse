@@ -34,7 +34,8 @@
                       (ef/content (:title issue))))
 
 (defn ^:export insert-issues [box issues]
-  (ef/at (str "#" (name box)) (ef/content (map one-issue issues))))
+  (let [box-id (str "#" box "-box")]
+    (ef/at box-id (ef/content (map one-issue issues)))))
 
 (defn ^:export show-boxes [{:keys [success message issues]}]
   (ef/at
@@ -44,6 +45,8 @@
   (if success
     (do
       (ef/at "body" (ef/append (four-boxes)))
+      (doseq [[box issues] issues]
+        (insert-issues box issues))
       (let [boxes ($ :.js-sortable)]
         (.disableSelection (.sortable
                             boxes

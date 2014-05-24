@@ -30,11 +30,11 @@
 (defn which-box [issue]
   (let [labels (set (:labels issue))]
     (condp subset? labels
-      box1 :box1
-      box2 :box2
-      box3 :box3
-      box4 :box4
-      #{}  :default)))
+      box1 1
+      box2 2
+      box3 3
+      box4 4
+      #{}  "default")))
 
 (defn fetch-issue-info [issue]
   (let [info (select-keys issue [:login :title :body :number :html_url])
