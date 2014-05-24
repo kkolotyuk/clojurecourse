@@ -342,3 +342,17 @@ ul.sortable .ui-state-highlight {
   padding: 0px 0px 40px 0px;
   max-width: 350px;
 }
+
+.logout {
+  font-family: 'Helvetica';
+  color: #3855C4;
+  cursor: pointer;
+}
+
+.warning {
+  font-family: Helvetica;
+  font-size: 26px;
+  text-align: center;
+  color: #ccc;
+  margin-top: 41px;
+}

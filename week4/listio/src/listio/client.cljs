@@ -24,12 +24,15 @@
                                                     (ef/get-prop :value)))))
 
 (em/defsnippet hint :compiled "public/prototype/main.html" [".hint"] [])
+(em/defsnippet warning :compiled "public/prototype/main.html" [".warning"] [text]
+  ".warning" (ef/content text))
 (em/defsnippet four-boxes :compiled "public/prototype/main.html" [".gogogo"] [])
 
 
 (defn ^:export show-boxes [{:keys [success message issues]}]
   (ef/at
     ".hint" (ef/remove-node)
+    ".warning" (ef/remove-node)
     ".gogogo" (ef/remove-node))
   (if success
     (do
@@ -38,7 +41,7 @@
         (.disableSelection (.sortable
                             boxes
                             (js-obj "connectWith" ".js-sortable")))))
-    (ef/at "body" (ef/append (str "<h1>" message "</h1>")))))
+    (ef/at "body" (ef/append (warning message)))))
 
 
 (defn ^:export init-boxes [fullrepo]
