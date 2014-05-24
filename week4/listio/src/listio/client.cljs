@@ -33,6 +33,9 @@
   ".title a" (ef/do-> (ef/set-attr :href (:html_url issue))
                       (ef/content (:title issue))))
 
+(defn ^:export insert-issues [box issues]
+  (ef/at (str "#" (name box)) (ef/content (map one-issue issues))))
+
 (defn ^:export show-boxes [{:keys [success message issues]}]
   (ef/at
     ".hint" (ef/remove-node)
