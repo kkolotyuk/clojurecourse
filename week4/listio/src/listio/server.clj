@@ -6,6 +6,7 @@
                                         redirect
                                         response]]
             [tentacles.core :refer [api-call]]
+            [tentacles.users :as users]
             [clj-oauth2.client :as oauth2]
             [ring.middleware.edn :refer [wrap-edn-params]]))
 
@@ -27,15 +28,32 @@
 (def auth-req (oauth2/make-auth-request github-oauth2 "csrf-protection-jfhH4krP"))
 
 (defn fetch-access-token [params]
-  (oauth2/get-access-token github-oauth2 params auth-req))
+  (:access-token (oauth2/get-access-token github-oauth2 params auth-req)))
+
+(defn github-user [access-token]
+  (users/me {:oauth_token access-token}))
 
 (defroutes handler
   (GET "/" [] (resource-response "index.html" {:root "public"}))
   (GET "/authorize" [] (redirect (:uri auth-req)))
-  (GET "/callback" request (let [access-token (fetch-access-token (:params request))
-                                 response (redirect "/")]
-                             (assoc-in response [:session :access-token] access-token)))
-  (GET "/is-authenticated" {{access-token :access-token} :session} (edn-response {:authenticated? (not (nil? access-token))}))
+  (GET "/callback" request
+       (let [access-token (fetch-access-token (:params request))
+             user (github-user access-token)
+             user-info {:access-token access-token
+                        :avatar-url (:avatar_url user)
+                        :username (:login user)
+                        :github-url (:html_url user)}
+             response (redirect "/")]
+         (update-in response [:session] merge user-info)))
+  (GET "/is-authenticated" {{:keys [access-token avatar-url username github-url]} :session}
+       (if (nil? access-token)
+         (edn-response {:authenticated? false})
+         (edn-response {:authenticated? true
+                        :access-token access-token
+                        :avatar-url avatar-url
+                        :username username
+                        :github-url github-url})))
+  (GET "/foo" [] (str (github-user)))
   (route/resources "/"))
 
 (def app

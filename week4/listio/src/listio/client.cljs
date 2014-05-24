@@ -6,25 +6,27 @@
 (em/defsnippet header :compiled "public/prototype/login.html" ["#header"] [])
 (em/defsnippet login-form :compiled "public/prototype/login.html" ["#login-form"] [])
 (em/defsnippet menu :compiled "public/prototype/main.html" ["#menu"]
-  [avatar-url github-url name]
+  [avatar-url github-url username]
   ".avatar" (ef/set-attr :src avatar-url)
   ".username" (ef/do-> (ef/set-attr :href github-url)
-                       (ef/content name)))
+                       (ef/content username)))
 
-(em/defaction login []
-    ["body"] (ef/do-> (ef/content (header))
-                      (ef/append (login-form))))
+(defn ^:export login []
+  (ef/at "body"
+         (ef/do-> (ef/content (header))
+                  (ef/append (login-form)))))
 
-(em/defaction main []
-    ["body"] (ef/do-> (ef/content (header))
-                      (ef/append "MAIN PAGE")))
+(defn ^:export main [avatar-url github-url username]
+  (ef/at "body"
+         (ef/do-> (ef/content (header))
+                  (ef/append (menu avatar-url github-url username)))))
 
 (defn ^:export console-handler [data]
   (.log js/console (str data)))
 
-(defn ^:export show-start [data]
-  (if (:authenticated? data)
-    (main)
+(defn ^:export show-start [{:keys [authenticated? avatar-url github-url username]}]
+  (if authenticated?
+    (main avatar-url github-url username)
     (login)))
 
 (defn ^:export start []

@@ -8,7 +8,7 @@
                  [compojure "1.1.8"]
                  [org.clojure/clojurescript "0.0-2202"]
                  [enfocus "2.1.0-SNAPSHOT"]
-                 [tentacles "0.2.5"]
+                 [tentacles "0.2.7"]
                  [stuarth/clj-oauth2 "0.3.2"]
                  [fogus/ring-edn "0.2.0"]
                  [cljs-ajax "0.2.4"]]
