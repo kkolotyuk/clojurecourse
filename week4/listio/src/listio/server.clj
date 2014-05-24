@@ -5,10 +5,6 @@
             [ring.util.response :refer [resource-response
                                         redirect
                                         response]]
-            [tentacles.core :refer [api-call]]
-            [tentacles.users :as users]
-            [tentacles.repos :as repos]
-            [tentacles.issues :as issues]
             [clj-oauth2.client :as oauth2]
             [ring.middleware.edn :refer [wrap-edn-params]]
             [listio.github :as github]))
@@ -55,17 +51,15 @@
   (GET "/logout" request
        (let [resp (edn-response {:logout true})]
          (update-in resp [:session] dissoc :access-token :avatar-url :username :github-url)))
-  (GET "/repo" [username reponame]
-       (if-let [repo (github/fetch-repo username reponame)]
-         (if (pos? (:open_issues repo))
-           (let [issues ])
-           (edn-response {:success true
-                          :repository })
+  (GET "/issues/:username/:reponame" [username reponame]
+       (if-let [issues (github/fetch-open-issues username reponame)]
+         (if (empty? issues)
            (edn-response {:success false
-                          :message "There are no open issues in this repository"}))
+                          :message "There are no open issues in this repository"})
+           (edn-response {:success true
+                          :issues issues}))
          (edn-response {:success false
-                        :message "Repository not found"}))
-  (GET "/foo" [] (str (github-user)))
+                        :message "Repository not found"})))
   (route/resources "/"))
 
 (def app

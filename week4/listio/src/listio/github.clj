@@ -10,10 +10,10 @@
 (def label3 "important")
 (def label4 "not important")
 
-(def box1 #{label3 lable2})
-(def box2 #{label4 lable2})
-(def box3 #{label4 lable1})
-(def box4 #{label3 lable1})
+(def box1 #{label3 label2})
+(def box2 #{label4 label2})
+(def box3 #{label4 label1})
+(def box4 #{label3 label1})
 
 
 (defn found? [resp]
