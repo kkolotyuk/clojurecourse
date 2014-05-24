@@ -49,10 +49,12 @@
        (if (nil? access-token)
          (edn-response {:authenticated? false})
          (edn-response {:authenticated? true
-                        :access-token access-token
                         :avatar-url avatar-url
                         :username username
                         :github-url github-url})))
+  (GET "/logout" request
+       (let [resp (edn-response {:logout true})]
+         (update-in resp [:session] dissoc :access-token :avatar-url :username :github-url)))
   (GET "/foo" [] (str (github-user)))
   (route/resources "/"))
 

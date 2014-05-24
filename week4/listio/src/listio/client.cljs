@@ -1,7 +1,10 @@
 (ns my.namespace
   (:require [enfocus.core :as ef]
+            [enfocus.events :as events]
             [ajax.core :refer [GET]])
   (:require-macros [enfocus.macros :as em]))
+
+(declare logout)
 
 (em/defsnippet header :compiled "public/prototype/login.html" ["#header"] [])
 (em/defsnippet login-form :compiled "public/prototype/login.html" ["#login-form"] [])
@@ -9,12 +12,17 @@
   [avatar-url github-url username]
   ".avatar" (ef/set-attr :src avatar-url)
   ".username" (ef/do-> (ef/set-attr :href github-url)
-                       (ef/content username)))
+                       (ef/content username))
+  ".logout" (events/listen :click logout))
 
 (defn ^:export login []
   (ef/at "body"
          (ef/do-> (ef/content (header))
                   (ef/append (login-form)))))
+
+(defn ^:export logout []
+  (GET "/logout"
+       {:finally login}))
 
 (defn ^:export main [avatar-url github-url username]
   (ef/at "body"
