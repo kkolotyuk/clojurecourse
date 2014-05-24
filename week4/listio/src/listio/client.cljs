@@ -1,7 +1,7 @@
 (ns my.namespace
   (:require [enfocus.core :as ef]
             [enfocus.events :as events]
-            [ajax.core :refer [GET]]
+            [ajax.core :refer [GET POST]]
             [jayq.core :refer [$]]
             [clojure.string :as str])
   (:require-macros [enfocus.macros :as em]))
@@ -26,12 +26,34 @@
 (em/defsnippet hint :compiled "public/prototype/main.html" [".hint"] [])
 (em/defsnippet warning :compiled "public/prototype/main.html" [".warning"] [text]
   ".warning" (ef/content text))
-(em/defsnippet four-boxes :compiled "public/prototype/main.html" [".gogogo"] [])
+(em/defsnippet four-boxes :compiled "public/prototype/main.html" [".gogogo"] []
+  "#issue-1" (ef/remove-node))
 (em/defsnippet one-issue :compiled "public/prototype/main.html" ["#issue-1"] [issue]
-  "#issue-1" (ef/set-attr :id (str "issue-" (:number issue)))
+  "#issue-1" (ef/do-> (ef/set-attr :id (str "issue-" (:number issue)))
+                      (ef/set-attr :data-number (:number issue))
+                      (ef/set-attr :data-username (:username issue))
+                      (ef/set-attr :data-repo (:repo issue)))
   ".number" (ef/content (str "#" (:number issue)))
   ".title a" (ef/do-> (ef/set-attr :href (:html_url issue))
                       (ef/content (:title issue))))
+
+(defn ^:export replace-issue [username repo number box]
+  (POST "/issues/replace"
+        {:params {:username username
+                  :repo repo
+                  :number number
+                  :box box}}))
+
+(defn ^:export receive-callback [event ui]
+  (this-as this
+    (let [item (.-item ui)
+          username (ef/from item (ef/get-attr :data-username))
+          repo (ef/from item (ef/get-attr :data-repo))
+          number (ef/from item (ef/get-attr :data-number))
+          box (second (re-find #"(.+)-" (ef/from this (ef/get-attr :id))))]
+      (replace-issue username repo number box))))
+
+
 
 (defn ^:export insert-issues [box issues]
   (let [box-id (str "#" box "-box")]
@@ -50,9 +72,10 @@
       (let [boxes ($ :.js-sortable)]
         (.disableSelection (.sortable
                             boxes
-                            (js-obj "connectWith" ".js-sortable")))))
+                            (js-obj "connectWith" ".js-sortable"
+                                    "placeholder" "ui-state-highlight"
+                                    "receive" receive-callback)))))
     (ef/at "body" (ef/append (warning message)))))
-
 
 (defn ^:export init-boxes [fullrepo]
   (let [[username reponame] (map str/trim (str/split fullrepo #"/"))]

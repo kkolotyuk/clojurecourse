@@ -60,6 +60,14 @@
                           :issues issues}))
          (edn-response {:success false
                         :message "Repository not found"})))
+  (POST "/issues/replace" {:keys [params session] :as request}
+        (let [access-token (:access-token session)
+              username (:username params)
+              repo (:repo params)
+              number (:number params)
+              box (:box params)]
+          (edn-response (github/to-the-box access-token username repo number box))))
+;;   (POST "/issues/replace" request (edn-response request))
   (route/resources "/"))
 
 (def app
