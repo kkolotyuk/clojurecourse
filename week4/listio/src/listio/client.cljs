@@ -27,7 +27,11 @@
 (em/defsnippet warning :compiled "public/prototype/main.html" [".warning"] [text]
   ".warning" (ef/content text))
 (em/defsnippet four-boxes :compiled "public/prototype/main.html" [".gogogo"] [])
-
+(em/defsnippet one-issue :compiled "public/prototype/main.html" ["#issue-1"] [issue]
+  "#issue-1" (ef/set-attr :id (str "issue-" (:number issue)))
+  ".number" (ef/content (str "#" (:number issue)))
+  ".title a" (ef/do-> (ef/set-attr :href (:html_url issue))
+                      (ef/content (:title issue))))
 
 (defn ^:export show-boxes [{:keys [success message issues]}]
   (ef/at
