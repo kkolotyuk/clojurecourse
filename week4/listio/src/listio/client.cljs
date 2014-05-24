@@ -13,6 +13,7 @@
 
 (em/defsnippet header :compiled "public/prototype/login.html" ["#header"] [])
 (em/defsnippet login-form :compiled "public/prototype/login.html" ["#login-form"] [])
+(em/defsnippet login-footer :compiled "public/prototype/login.html" [".footer"] [])
 (em/defsnippet menu :compiled "public/prototype/main.html" ["#menu"]
   [avatar-url github-url username]
   ".avatar" (ef/set-attr :src avatar-url)
@@ -85,7 +86,8 @@
 (defn ^:export login []
   (ef/at "body"
          (ef/do-> (ef/content (header))
-                  (ef/append (login-form)))))
+                  (ef/append (login-form))
+                  (ef/append (login-footer)))))
 
 (defn ^:export logout []
   (GET "/logout"
