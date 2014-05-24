@@ -2,10 +2,14 @@
   (:require [enfocus.core :as ef]
             [enfocus.events :as events]
             [ajax.core :refer [GET]]
-            [jayq.core :refer [$]])
+            [jayq.core :refer [$]]
+            [clojure.string :as str])
   (:require-macros [enfocus.macros :as em]))
 
-(declare logout)
+(declare logout init-boxes)
+
+(defn ^:export console-handler [data]
+  (.log js/console (str data)))
 
 (em/defsnippet header :compiled "public/prototype/login.html" ["#header"] [])
 (em/defsnippet login-form :compiled "public/prototype/login.html" ["#login-form"] [])
@@ -14,10 +18,18 @@
   ".avatar" (ef/set-attr :src avatar-url)
   ".username" (ef/do-> (ef/set-attr :href github-url)
                        (ef/content username))
-  ".logout" (events/listen :click logout))
+  ".logout" (events/listen :click logout)
+  "#btn-switch-id" (events/listen :click #(init-boxes
+                                           (ef/from "#repo"
+                                                    (ef/get-prop :value)))))
 
 (em/defsnippet hint :compiled "public/prototype/main.html" [".hint"] [])
 (em/defsnippet four-boxes :compiled "public/prototype/main.html" [".gogogo"] [])
+
+(defn ^:export init-boxes [fullrepo]
+  (let [[username reponame] (map str/trim (str/split fullrepo #"/"))]
+    (GET (str "/issues/" username "/" reponame)
+         {:handler console-handler})))
 
 (defn ^:export login []
   (ef/at "body"
@@ -27,9 +39,6 @@
 (defn ^:export logout []
   (GET "/logout"
        {:finally login}))
-
-(defn ^:export console-handler [data]
-  (.log js/console (str data)))
 
 (defn ^:export main [avatar-url github-url username]
   (ef/at "body"

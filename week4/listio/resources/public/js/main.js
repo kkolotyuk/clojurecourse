@@ -41364,102 +41364,120 @@ goog.provide("my.namespace");
 goog.require("cljs.core");
 goog.require("ajax.core");
 goog.require("jayq.core");
+goog.require("clojure.string");
+goog.require("clojure.string");
 goog.require("jayq.core");
 goog.require("ajax.core");
 goog.require("enfocus.events");
 goog.require("enfocus.events");
 goog.require("enfocus.core");
 goog.require("enfocus.core");
+my.namespace.console_handler = function console_handler(data) {
+  return console.log([cljs.core.str(data)].join(""));
+};
+goog.exportSymbol("my.namespace.console_handler", my.namespace.console_handler);
 if (cljs.core.deref.call(null, enfocus.core.tpl_cache).call(null, 'compiledpublic/prototype/login.html["#header"]') == null) {
-  var vec__85459_85464 = enfocus.core.replace_ids.call(null, "en5652_", '\x3cdiv id\x3d"header" class\x3d"header"\x3e \n \x3ca href\x3d"/"\x3e \x3cimg alt\x3d"Logo" height\x3d"59" src\x3d"/img/logo.png" width\x3d"163" /\x3e \x3c/a\x3e \n \x3cdiv class\x3d"text-logo"\x3e\n   YOUR DAILY PROJECT FIGHT PLAN\n  \x3ca href\x3d"https://twitter.com/listio_us" target\x3d"_blank"\x3e\x3cimg alt\x3d"twitter" height\x3d"45" src\x3d"/img/twitter.jpg" width\x3d"45" /\x3e\x3c/a\x3e \n \x3c/div\x3e \n\x3c/div\x3e');
-  var sym__4515__auto___85465 = cljs.core.nth.call(null, vec__85459_85464, 0, null);
-  var txt__4516__auto___85466 = cljs.core.nth.call(null, vec__85459_85464, 1, null);
-  cljs.core.swap_BANG_.call(null, enfocus.core.tpl_cache, cljs.core.assoc, 'compiledpublic/prototype/login.html["#header"]', new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [sym__4515__auto___85465, txt__4516__auto___85466], null));
+  var vec__88186_88191 = enfocus.core.replace_ids.call(null, "en5652_", '\x3cdiv id\x3d"header" class\x3d"header"\x3e \n \x3ca href\x3d"/"\x3e \x3cimg alt\x3d"Logo" height\x3d"59" src\x3d"/img/logo.png" width\x3d"163" /\x3e \x3c/a\x3e \n \x3cdiv class\x3d"text-logo"\x3e\n   YOUR DAILY PROJECT FIGHT PLAN\n  \x3ca href\x3d"https://twitter.com/listio_us" target\x3d"_blank"\x3e\x3cimg alt\x3d"twitter" height\x3d"45" src\x3d"/img/twitter.jpg" width\x3d"45" /\x3e\x3c/a\x3e \n \x3c/div\x3e \n\x3c/div\x3e');
+  var sym__4515__auto___88192 = cljs.core.nth.call(null, vec__88186_88191, 0, null);
+  var txt__4516__auto___88193 = cljs.core.nth.call(null, vec__88186_88191, 1, null);
+  cljs.core.swap_BANG_.call(null, enfocus.core.tpl_cache, cljs.core.assoc, 'compiledpublic/prototype/login.html["#header"]', new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [sym__4515__auto___88192, txt__4516__auto___88193], null));
 } else {
 }
 my.namespace.header = function header() {
-  var vec__85463 = function() {
+  var vec__88190 = function() {
     return enfocus.core.get_cached_dom.call(null, 'compiledpublic/prototype/login.html["#header"]');
   }.call(null);
-  var id_sym85460 = cljs.core.nth.call(null, vec__85463, 0, null);
-  var pnod85461 = cljs.core.nth.call(null, vec__85463, 1, null);
-  var pnod85461__$1 = enfocus.core.create_hidden_dom.call(null, pnod85461);
-  enfocus.core.i_at.call(null, id_sym85460, pnod85461__$1);
-  enfocus.core.reset_ids.call(null, id_sym85460, pnod85461__$1);
-  return enfocus.core.remove_node_return_child.call(null, pnod85461__$1);
+  var id_sym88187 = cljs.core.nth.call(null, vec__88190, 0, null);
+  var pnod88188 = cljs.core.nth.call(null, vec__88190, 1, null);
+  var pnod88188__$1 = enfocus.core.create_hidden_dom.call(null, pnod88188);
+  enfocus.core.i_at.call(null, id_sym88187, pnod88188__$1);
+  enfocus.core.reset_ids.call(null, id_sym88187, pnod88188__$1);
+  return enfocus.core.remove_node_return_child.call(null, pnod88188__$1);
 };
 if (cljs.core.deref.call(null, enfocus.core.tpl_cache).call(null, 'compiledpublic/prototype/login.html["#login-form"]') == null) {
-  var vec__85467_85472 = enfocus.core.replace_ids.call(null, "en5661_", '\x3cdiv id\x3d"login-form" class\x3d"background-welcome"\x3e \n \x3cdiv class\x3d"welcome"\x3e \n  \x3cdiv class\x3d"text"\x3e\n    Sometimes it\'s not clear what your first task of the day should be or what\'s next.\n   \x3cbr /\x3e Split your issues into 4 categories and get natural vision of what should be done today. \n  \x3c/div\x3e \n  \x3cdiv class\x3d"references"\x3e \n   \x3ca class\x3d"github" href\x3d"/authorize"\x3e Login via\x3cspan class\x3d"git"\x3eGithub\x3c/span\x3e \x3c/a\x3e \n   \x3cdiv class\x3d"or"\x3e\n    or\n   \x3c/div\x3e \n   \x3cdiv class\x3d"text-ref"\x3e\n     play with\n    \x3ca class\x3d"testboard" href\x3d"#container"\x3etestboard\x3c/a\x3e \u2193\n    \x3cbr /\x3e by dragging some issues \n   \x3c/div\x3e \n  \x3c/div\x3e \n \x3c/div\x3e \n\x3c/div\x3e');
-  var sym__4515__auto___85473 = cljs.core.nth.call(null, vec__85467_85472, 0, null);
-  var txt__4516__auto___85474 = cljs.core.nth.call(null, vec__85467_85472, 1, null);
-  cljs.core.swap_BANG_.call(null, enfocus.core.tpl_cache, cljs.core.assoc, 'compiledpublic/prototype/login.html["#login-form"]', new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [sym__4515__auto___85473, txt__4516__auto___85474], null));
+  var vec__88194_88199 = enfocus.core.replace_ids.call(null, "en5661_", '\x3cdiv id\x3d"login-form" class\x3d"background-welcome"\x3e \n \x3cdiv class\x3d"welcome"\x3e \n  \x3cdiv class\x3d"text"\x3e\n    Sometimes it\'s not clear what your first task of the day should be or what\'s next.\n   \x3cbr /\x3e Split your issues into 4 categories and get natural vision of what should be done today. \n  \x3c/div\x3e \n  \x3cdiv class\x3d"references"\x3e \n   \x3ca class\x3d"github" href\x3d"/authorize"\x3e Login via\x3cspan class\x3d"git"\x3eGithub\x3c/span\x3e \x3c/a\x3e \n   \x3cdiv class\x3d"or"\x3e\n    or\n   \x3c/div\x3e \n   \x3cdiv class\x3d"text-ref"\x3e\n     play with\n    \x3ca class\x3d"testboard" href\x3d"#container"\x3etestboard\x3c/a\x3e \u2193\n    \x3cbr /\x3e by dragging some issues \n   \x3c/div\x3e \n  \x3c/div\x3e \n \x3c/div\x3e \n\x3c/div\x3e');
+  var sym__4515__auto___88200 = cljs.core.nth.call(null, vec__88194_88199, 0, null);
+  var txt__4516__auto___88201 = cljs.core.nth.call(null, vec__88194_88199, 1, null);
+  cljs.core.swap_BANG_.call(null, enfocus.core.tpl_cache, cljs.core.assoc, 'compiledpublic/prototype/login.html["#login-form"]', new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [sym__4515__auto___88200, txt__4516__auto___88201], null));
 } else {
 }
 my.namespace.login_form = function login_form() {
-  var vec__85471 = function() {
+  var vec__88198 = function() {
     return enfocus.core.get_cached_dom.call(null, 'compiledpublic/prototype/login.html["#login-form"]');
   }.call(null);
-  var id_sym85468 = cljs.core.nth.call(null, vec__85471, 0, null);
-  var pnod85469 = cljs.core.nth.call(null, vec__85471, 1, null);
-  var pnod85469__$1 = enfocus.core.create_hidden_dom.call(null, pnod85469);
-  enfocus.core.i_at.call(null, id_sym85468, pnod85469__$1);
-  enfocus.core.reset_ids.call(null, id_sym85468, pnod85469__$1);
-  return enfocus.core.remove_node_return_child.call(null, pnod85469__$1);
+  var id_sym88195 = cljs.core.nth.call(null, vec__88198, 0, null);
+  var pnod88196 = cljs.core.nth.call(null, vec__88198, 1, null);
+  var pnod88196__$1 = enfocus.core.create_hidden_dom.call(null, pnod88196);
+  enfocus.core.i_at.call(null, id_sym88195, pnod88196__$1);
+  enfocus.core.reset_ids.call(null, id_sym88195, pnod88196__$1);
+  return enfocus.core.remove_node_return_child.call(null, pnod88196__$1);
 };
 if (cljs.core.deref.call(null, enfocus.core.tpl_cache).call(null, 'compiledpublic/prototype/main.html["#menu"]') == null) {
-  var vec__85475_85480 = enfocus.core.replace_ids.call(null, "en5670_", '\x3cdiv id\x3d"menu" class\x3d"background-toolbar"\x3e \n \x3cdiv class\x3d"toolbar"\x3e \n  \x3cdiv class\x3d"user table" username\x3d"kkolotyuk"\x3e \n   \x3ca class\x3d"table-cell user-link"\x3e \x3cimg alt\x3d"1401618?" class\x3d"avatar" src\x3d"https://avatars.githubusercontent.com/u/1401618?" /\x3e \x3c/a\x3e \n   \x3ca class\x3d"username table-cell" href\x3d"https://github.com/kkolotyuk"\x3ekkolotyuk\x3c/a\x3e \n   \x3cspan class\x3d"table-cell logout"\x3eLogout\x3c/span\x3e \n  \x3c/div\x3e \n  \x3cdiv class\x3d"left-side"\x3e \n   \x3cdiv class\x3d"select-repo"\x3e\n     http://github.com/\n    \x3cinput class\x3d"text-repo js-submit-by-enter" id\x3d"repo" name\x3d"repo" placeholder\x3d"username / repository" type\x3d"text" /\x3e\n    \x3cinput class\x3d"btn-switch" id\x3d"btn-switch-id" name\x3d"commit" type\x3d"submit" value\x3d"Choose project" /\x3e \n   \x3c/div\x3e \n  \x3c/div\x3e \n \x3c/div\x3e \n\x3c/div\x3e');
-  var sym__4515__auto___85481 = cljs.core.nth.call(null, vec__85475_85480, 0, null);
-  var txt__4516__auto___85482 = cljs.core.nth.call(null, vec__85475_85480, 1, null);
-  cljs.core.swap_BANG_.call(null, enfocus.core.tpl_cache, cljs.core.assoc, 'compiledpublic/prototype/main.html["#menu"]', new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [sym__4515__auto___85481, txt__4516__auto___85482], null));
+  var vec__88202_88207 = enfocus.core.replace_ids.call(null, "en5670_", '\x3cdiv id\x3d"menu" class\x3d"background-toolbar"\x3e \n \x3cdiv class\x3d"toolbar"\x3e \n  \x3cdiv class\x3d"user table" username\x3d"kkolotyuk"\x3e \n   \x3ca class\x3d"table-cell user-link"\x3e \x3cimg alt\x3d"1401618?" class\x3d"avatar" src\x3d"https://avatars.githubusercontent.com/u/1401618?" /\x3e \x3c/a\x3e \n   \x3ca class\x3d"username table-cell" href\x3d"https://github.com/kkolotyuk"\x3ekkolotyuk\x3c/a\x3e \n   \x3cspan class\x3d"table-cell logout"\x3eLogout\x3c/span\x3e \n  \x3c/div\x3e \n  \x3cdiv class\x3d"left-side"\x3e \n   \x3cdiv class\x3d"select-repo"\x3e\n     http://github.com/\n    \x3cinput class\x3d"text-repo js-submit-by-enter" id\x3d"repo" name\x3d"repo" placeholder\x3d"username / repository" type\x3d"text" /\x3e\n    \x3cinput class\x3d"btn-switch" id\x3d"btn-switch-id" name\x3d"commit" type\x3d"submit" value\x3d"Choose project" /\x3e \n   \x3c/div\x3e \n  \x3c/div\x3e \n \x3c/div\x3e \n\x3c/div\x3e');
+  var sym__4515__auto___88208 = cljs.core.nth.call(null, vec__88202_88207, 0, null);
+  var txt__4516__auto___88209 = cljs.core.nth.call(null, vec__88202_88207, 1, null);
+  cljs.core.swap_BANG_.call(null, enfocus.core.tpl_cache, cljs.core.assoc, 'compiledpublic/prototype/main.html["#menu"]', new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [sym__4515__auto___88208, txt__4516__auto___88209], null));
 } else {
 }
 my.namespace.menu = function menu(avatar_url, github_url, username) {
-  var vec__85479 = function() {
+  var vec__88206 = function() {
     return enfocus.core.get_cached_dom.call(null, 'compiledpublic/prototype/main.html["#menu"]');
   }.call(null);
-  var id_sym85476 = cljs.core.nth.call(null, vec__85479, 0, null);
-  var pnod85477 = cljs.core.nth.call(null, vec__85479, 1, null);
-  var pnod85477__$1 = enfocus.core.create_hidden_dom.call(null, pnod85477);
-  enfocus.core.i_at.call(null, id_sym85476, pnod85477__$1, ".avatar", enfocus.core.set_attr.call(null, new cljs.core.Keyword(null, "src", "src", 1014018390), avatar_url), ".username", enfocus.core.do__GT_.call(null, enfocus.core.set_attr.call(null, new cljs.core.Keyword(null, "href", "href", 1017115293), github_url), enfocus.core.content.call(null, username)), ".logout", enfocus.events.listen.call(null, new cljs.core.Keyword(null, "click", "click", 1108654330), my.namespace.logout));
-  enfocus.core.reset_ids.call(null, id_sym85476, pnod85477__$1);
-  return enfocus.core.remove_node_return_child.call(null, pnod85477__$1);
+  var id_sym88203 = cljs.core.nth.call(null, vec__88206, 0, null);
+  var pnod88204 = cljs.core.nth.call(null, vec__88206, 1, null);
+  var pnod88204__$1 = enfocus.core.create_hidden_dom.call(null, pnod88204);
+  enfocus.core.i_at.call(null, id_sym88203, pnod88204__$1, ".avatar", enfocus.core.set_attr.call(null, new cljs.core.Keyword(null, "src", "src", 1014018390), avatar_url), ".username", enfocus.core.do__GT_.call(null, enfocus.core.set_attr.call(null, new cljs.core.Keyword(null, "href", "href", 1017115293), github_url), enfocus.core.content.call(null, username)), ".logout", enfocus.events.listen.call(null, new cljs.core.Keyword(null, "click", "click", 1108654330), my.namespace.logout), "#btn-switch-id", 
+  enfocus.events.listen.call(null, new cljs.core.Keyword(null, "click", "click", 1108654330), function(vec__88206, id_sym88203, pnod88204, pnod88204__$1) {
+    return function() {
+      return my.namespace.init_boxes.call(null, enfocus.core.from.call(null, "#repo", enfocus.core.get_prop.call(null, new cljs.core.Keyword(null, "value", "value", 1125876963))));
+    };
+  }(vec__88206, id_sym88203, pnod88204, pnod88204__$1)));
+  enfocus.core.reset_ids.call(null, id_sym88203, pnod88204__$1);
+  return enfocus.core.remove_node_return_child.call(null, pnod88204__$1);
 };
 if (cljs.core.deref.call(null, enfocus.core.tpl_cache).call(null, 'compiledpublic/prototype/main.html[".hint"]') == null) {
-  var vec__85483_85488 = enfocus.core.replace_ids.call(null, "en5679_", '\x3cdiv class\x3d"hint"\x3e \n \x3cspan class\x3d"title"\x3eType in some of your repositories with issues \u2191\x3c/span\x3e \n \x3cbr /\x3e note that we will add four labels \n \x3cbr /\x3e to your project to keep issues synced: \n \x3cbr /\x3e - clear \n \x3cbr /\x3e - not clear \n \x3cbr /\x3e - important \n \x3cbr /\x3e - not important \n\x3c/div\x3e');
-  var sym__4515__auto___85489 = cljs.core.nth.call(null, vec__85483_85488, 0, null);
-  var txt__4516__auto___85490 = cljs.core.nth.call(null, vec__85483_85488, 1, null);
-  cljs.core.swap_BANG_.call(null, enfocus.core.tpl_cache, cljs.core.assoc, 'compiledpublic/prototype/main.html[".hint"]', new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [sym__4515__auto___85489, txt__4516__auto___85490], null));
+  var vec__88210_88215 = enfocus.core.replace_ids.call(null, "en5679_", '\x3cdiv class\x3d"hint"\x3e \n \x3cspan class\x3d"title"\x3eType in some of your repositories with issues \u2191\x3c/span\x3e \n \x3cbr /\x3e note that we will add four labels \n \x3cbr /\x3e to your project to keep issues synced: \n \x3cbr /\x3e - clear \n \x3cbr /\x3e - not clear \n \x3cbr /\x3e - important \n \x3cbr /\x3e - not important \n\x3c/div\x3e');
+  var sym__4515__auto___88216 = cljs.core.nth.call(null, vec__88210_88215, 0, null);
+  var txt__4516__auto___88217 = cljs.core.nth.call(null, vec__88210_88215, 1, null);
+  cljs.core.swap_BANG_.call(null, enfocus.core.tpl_cache, cljs.core.assoc, 'compiledpublic/prototype/main.html[".hint"]', new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [sym__4515__auto___88216, txt__4516__auto___88217], null));
 } else {
 }
 my.namespace.hint = function hint() {
-  var vec__85487 = function() {
+  var vec__88214 = function() {
     return enfocus.core.get_cached_dom.call(null, 'compiledpublic/prototype/main.html[".hint"]');
   }.call(null);
-  var id_sym85484 = cljs.core.nth.call(null, vec__85487, 0, null);
-  var pnod85485 = cljs.core.nth.call(null, vec__85487, 1, null);
-  var pnod85485__$1 = enfocus.core.create_hidden_dom.call(null, pnod85485);
-  enfocus.core.i_at.call(null, id_sym85484, pnod85485__$1);
-  enfocus.core.reset_ids.call(null, id_sym85484, pnod85485__$1);
-  return enfocus.core.remove_node_return_child.call(null, pnod85485__$1);
+  var id_sym88211 = cljs.core.nth.call(null, vec__88214, 0, null);
+  var pnod88212 = cljs.core.nth.call(null, vec__88214, 1, null);
+  var pnod88212__$1 = enfocus.core.create_hidden_dom.call(null, pnod88212);
+  enfocus.core.i_at.call(null, id_sym88211, pnod88212__$1);
+  enfocus.core.reset_ids.call(null, id_sym88211, pnod88212__$1);
+  return enfocus.core.remove_node_return_child.call(null, pnod88212__$1);
 };
 if (cljs.core.deref.call(null, enfocus.core.tpl_cache).call(null, 'compiledpublic/prototype/main.html[".gogogo"]') == null) {
-  var vec__85491_85496 = enfocus.core.replace_ids.call(null, "en5688_", '\x3cdiv class\x3d"container gogogo"\x3e \n \x3cdiv class\x3d"user-selector"\x3e \n  \x3cbutton class\x3d"btn-update btn-disabled" id\x3d"choose-repo-btn" name\x3d"button" type\x3d"submit"\x3e Syncronize with GitHub \x3c/button\x3e \n \x3c/div\x3e \n \x3cdiv class\x3d"left-side"\x3e \n  \x3cdiv class\x3d"user-selector"\x3e \n   \x3cbutton class\x3d"pressed" id\x3d"all-issues" name\x3d"button" type\x3d"submit"\x3e All Issues \x3c/button\x3e \n   \x3cbutton class\x3d"unpressed" id\x3d"my-issues" name\x3d"button" type\x3d"submit"\x3e My Issues \x3c/button\x3e \n   \x3cdiv class\x3d"tab-container"\x3e \n    \x3cdiv class\x3d"right-border"\x3e \n     \x3cul class\x3d"js-sortable sortable ui-sortable" id\x3d"default-box"\x3e \n      \x3cli id\x3d"issue-1" class\x3d"issue" style\x3d"display: list-item;"\x3e \n       \x3cdiv class\x3d"name"\x3e\n        Issue\n       \x3c/div\x3e \n       \x3cdiv class\x3d"number"\x3e\n        #1\n       \x3c/div\x3e \n       \x3cdiv class\x3d"title"\x3e \n        \x3ca href\x3d"https://github.com/kkolotyuk/clojure-snake/issues/1" target\x3d"_blank"\x3e Test my app \x3c/a\x3e \n       \x3c/div\x3e \x3c/li\x3e \n     \x3c/ul\x3e \n    \x3c/div\x3e \n   \x3c/div\x3e \n  \x3c/div\x3e \n \x3c/div\x3e \n \x3cdiv class\x3d"container-boxs"\x3e \n  \x3cdiv class\x3d"box violet border"\x3e \n   \x3cul class\x3d"js-sortable sortable ui-sortable" id\x3d"4-box"\x3e \n    \x3cli id\x3d"issue-1" class\x3d"issue"\x3e \n     \x3cdiv class\x3d"name"\x3e\n      Issue\n     \x3c/div\x3e \n     \x3cdiv class\x3d"number"\x3e\n      #1\n     \x3c/div\x3e \n     \x3cdiv class\x3d"title"\x3e \n      \x3ca href\x3d"https://github.com/kkolotyuk/clojure-snake/issues/1" target\x3d"_blank"\x3e Test my app \x3c/a\x3e \n     \x3c/div\x3e \x3c/li\x3e \n   \x3c/ul\x3e \n   \x3cdiv class\x3d"info"\x3e\n    Important \x26amp; Clear\n   \x3c/div\x3e \n   \x3cdiv class\x3d"help"\x3e\n    Just implement this!\n   \x3c/div\x3e \n  \x3c/div\x3e \n  \x3cdiv class\x3d"box red"\x3e \n   \x3cul class\x3d"js-sortable sortable ui-sortable" id\x3d"1-box"\x3e\x3c/ul\x3e \n   \x3cdiv class\x3d"info"\x3e\n    Important \x26amp; not clear\n   \x3c/div\x3e \n   \x3cdiv class\x3d"help"\x3e\n    Ask your product owner.\n    \x3cbr /\x3e Spend some time on investigation\n   \x3c/div\x3e \n  \x3c/div\x3e \n  \x3cdiv class\x3d"box green"\x3e \n   \x3cul class\x3d"js-sortable sortable ui-sortable" id\x3d"3-box"\x3e\x3c/ul\x3e \n   \x3cdiv class\x3d"info"\x3e\n    Not important \x26amp; clear\n   \x3c/div\x3e \n   \x3cdiv class\x3d"help"\x3e\n    Do simple tasks from this list\n    \x3cbr /\x3e to quick results and motivate yourself\n   \x3c/div\x3e \n  \x3c/div\x3e \n  \x3cdiv class\x3d"box violet"\x3e \n   \x3cul class\x3d"js-sortable sortable ui-sortable" id\x3d"2-box"\x3e\x3c/ul\x3e \n   \x3cdiv class\x3d"info"\x3e\n    Not important \x26amp; not clear\n   \x3c/div\x3e \n   \x3cdiv class\x3d"help"\x3e\n    Take a look at these issues at the end\n    \x3cbr /\x3e of your work day.\n   \x3c/div\x3e \n  \x3c/div\x3e \n \x3c/div\x3e \n\x3c/div\x3e');
-  var sym__4515__auto___85497 = cljs.core.nth.call(null, vec__85491_85496, 0, null);
-  var txt__4516__auto___85498 = cljs.core.nth.call(null, vec__85491_85496, 1, null);
-  cljs.core.swap_BANG_.call(null, enfocus.core.tpl_cache, cljs.core.assoc, 'compiledpublic/prototype/main.html[".gogogo"]', new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [sym__4515__auto___85497, txt__4516__auto___85498], null));
+  var vec__88218_88223 = enfocus.core.replace_ids.call(null, "en5688_", '\x3cdiv class\x3d"container gogogo"\x3e \n \x3cdiv class\x3d"user-selector"\x3e \n  \x3cbutton class\x3d"btn-update btn-disabled" id\x3d"choose-repo-btn" name\x3d"button" type\x3d"submit"\x3e Syncronize with GitHub \x3c/button\x3e \n \x3c/div\x3e \n \x3cdiv class\x3d"left-side"\x3e \n  \x3cdiv class\x3d"user-selector"\x3e \n   \x3cbutton class\x3d"pressed" id\x3d"all-issues" name\x3d"button" type\x3d"submit"\x3e All Issues \x3c/button\x3e \n   \x3cbutton class\x3d"unpressed" id\x3d"my-issues" name\x3d"button" type\x3d"submit"\x3e My Issues \x3c/button\x3e \n   \x3cdiv class\x3d"tab-container"\x3e \n    \x3cdiv class\x3d"right-border"\x3e \n     \x3cul class\x3d"js-sortable sortable ui-sortable" id\x3d"default-box"\x3e \n      \x3cli id\x3d"issue-1" class\x3d"issue" style\x3d"display: list-item;"\x3e \n       \x3cdiv class\x3d"name"\x3e\n        Issue\n       \x3c/div\x3e \n       \x3cdiv class\x3d"number"\x3e\n        #1\n       \x3c/div\x3e \n       \x3cdiv class\x3d"title"\x3e \n        \x3ca href\x3d"https://github.com/kkolotyuk/clojure-snake/issues/1" target\x3d"_blank"\x3e Test my app \x3c/a\x3e \n       \x3c/div\x3e \x3c/li\x3e \n     \x3c/ul\x3e \n    \x3c/div\x3e \n   \x3c/div\x3e \n  \x3c/div\x3e \n \x3c/div\x3e \n \x3cdiv class\x3d"container-boxs"\x3e \n  \x3cdiv class\x3d"box violet border"\x3e \n   \x3cul class\x3d"js-sortable sortable ui-sortable" id\x3d"4-box"\x3e \n    \x3cli id\x3d"issue-1" class\x3d"issue"\x3e \n     \x3cdiv class\x3d"name"\x3e\n      Issue\n     \x3c/div\x3e \n     \x3cdiv class\x3d"number"\x3e\n      #1\n     \x3c/div\x3e \n     \x3cdiv class\x3d"title"\x3e \n      \x3ca href\x3d"https://github.com/kkolotyuk/clojure-snake/issues/1" target\x3d"_blank"\x3e Test my app \x3c/a\x3e \n     \x3c/div\x3e \x3c/li\x3e \n   \x3c/ul\x3e \n   \x3cdiv class\x3d"info"\x3e\n    Important \x26amp; Clear\n   \x3c/div\x3e \n   \x3cdiv class\x3d"help"\x3e\n    Just implement this!\n   \x3c/div\x3e \n  \x3c/div\x3e \n  \x3cdiv class\x3d"box red"\x3e \n   \x3cul class\x3d"js-sortable sortable ui-sortable" id\x3d"1-box"\x3e\x3c/ul\x3e \n   \x3cdiv class\x3d"info"\x3e\n    Important \x26amp; not clear\n   \x3c/div\x3e \n   \x3cdiv class\x3d"help"\x3e\n    Ask your product owner.\n    \x3cbr /\x3e Spend some time on investigation\n   \x3c/div\x3e \n  \x3c/div\x3e \n  \x3cdiv class\x3d"box green"\x3e \n   \x3cul class\x3d"js-sortable sortable ui-sortable" id\x3d"3-box"\x3e\x3c/ul\x3e \n   \x3cdiv class\x3d"info"\x3e\n    Not important \x26amp; clear\n   \x3c/div\x3e \n   \x3cdiv class\x3d"help"\x3e\n    Do simple tasks from this list\n    \x3cbr /\x3e to quick results and motivate yourself\n   \x3c/div\x3e \n  \x3c/div\x3e \n  \x3cdiv class\x3d"box violet"\x3e \n   \x3cul class\x3d"js-sortable sortable ui-sortable" id\x3d"2-box"\x3e\x3c/ul\x3e \n   \x3cdiv class\x3d"info"\x3e\n    Not important \x26amp; not clear\n   \x3c/div\x3e \n   \x3cdiv class\x3d"help"\x3e\n    Take a look at these issues at the end\n    \x3cbr /\x3e of your work day.\n   \x3c/div\x3e \n  \x3c/div\x3e \n \x3c/div\x3e \n\x3c/div\x3e');
+  var sym__4515__auto___88224 = cljs.core.nth.call(null, vec__88218_88223, 0, null);
+  var txt__4516__auto___88225 = cljs.core.nth.call(null, vec__88218_88223, 1, null);
+  cljs.core.swap_BANG_.call(null, enfocus.core.tpl_cache, cljs.core.assoc, 'compiledpublic/prototype/main.html[".gogogo"]', new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [sym__4515__auto___88224, txt__4516__auto___88225], null));
 } else {
 }
 my.namespace.four_boxes = function four_boxes() {
-  var vec__85495 = function() {
+  var vec__88222 = function() {
     return enfocus.core.get_cached_dom.call(null, 'compiledpublic/prototype/main.html[".gogogo"]');
   }.call(null);
-  var id_sym85492 = cljs.core.nth.call(null, vec__85495, 0, null);
-  var pnod85493 = cljs.core.nth.call(null, vec__85495, 1, null);
-  var pnod85493__$1 = enfocus.core.create_hidden_dom.call(null, pnod85493);
-  enfocus.core.i_at.call(null, id_sym85492, pnod85493__$1);
-  enfocus.core.reset_ids.call(null, id_sym85492, pnod85493__$1);
-  return enfocus.core.remove_node_return_child.call(null, pnod85493__$1);
+  var id_sym88219 = cljs.core.nth.call(null, vec__88222, 0, null);
+  var pnod88220 = cljs.core.nth.call(null, vec__88222, 1, null);
+  var pnod88220__$1 = enfocus.core.create_hidden_dom.call(null, pnod88220);
+  enfocus.core.i_at.call(null, id_sym88219, pnod88220__$1);
+  enfocus.core.reset_ids.call(null, id_sym88219, pnod88220__$1);
+  return enfocus.core.remove_node_return_child.call(null, pnod88220__$1);
 };
+my.namespace.init_boxes = function init_boxes(fullrepo) {
+  var vec__88227 = cljs.core.map.call(null, clojure.string.trim, clojure.string.split.call(null, fullrepo, /\//));
+  var username = cljs.core.nth.call(null, vec__88227, 0, null);
+  var reponame = cljs.core.nth.call(null, vec__88227, 1, null);
+  return ajax.core.GET.call(null, [cljs.core.str("/issues/"), cljs.core.str(username), cljs.core.str("/"), cljs.core.str(reponame)].join(""), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "handler", "handler", 1706707644), my.namespace.console_handler], null));
+};
+goog.exportSymbol("my.namespace.init_boxes", my.namespace.init_boxes);
 my.namespace.login = function login() {
   return enfocus.core.at.call(null, "body", enfocus.core.do__GT_.call(null, enfocus.core.content.call(null, my.namespace.header.call(null)), enfocus.core.append.call(null, my.namespace.login_form.call(null))));
 };
@@ -41468,27 +41486,23 @@ my.namespace.logout = function logout() {
   return ajax.core.GET.call(null, "/logout", new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "finally", "finally", 4455611637), my.namespace.login], null));
 };
 goog.exportSymbol("my.namespace.logout", my.namespace.logout);
-my.namespace.console_handler = function console_handler(data) {
-  return console.log([cljs.core.str(data)].join(""));
-};
-goog.exportSymbol("my.namespace.console_handler", my.namespace.console_handler);
 my.namespace.main = function main(avatar_url, github_url, username) {
   enfocus.core.at.call(null, "body", enfocus.core.do__GT_.call(null, enfocus.core.content.call(null, my.namespace.header.call(null)), enfocus.core.append.call(null, my.namespace.menu.call(null, avatar_url, github_url, username)), enfocus.core.append.call(null, my.namespace.four_boxes.call(null))));
   var boxes = jayq.core.$.call(null, new cljs.core.Keyword(null, ".js-sortable", ".js-sortable", 1965395584));
   my.namespace.console_handler.call(null, cljs.core.count.call(null, boxes));
   return boxes.sortable(function() {
-    var obj85502 = {"connectWith":".js-sortable"};
-    return obj85502;
+    var obj88231 = {"connectWith":".js-sortable"};
+    return obj88231;
   }()).disableSelection();
 };
 goog.exportSymbol("my.namespace.main", my.namespace.main);
-my.namespace.show_start = function show_start(p__85503) {
-  var map__85505 = p__85503;
-  var map__85505__$1 = cljs.core.seq_QMARK_.call(null, map__85505) ? cljs.core.apply.call(null, cljs.core.hash_map, map__85505) : map__85505;
-  var username = cljs.core.get.call(null, map__85505__$1, new cljs.core.Keyword(null, "username", "username", 748190792));
-  var github_url = cljs.core.get.call(null, map__85505__$1, new cljs.core.Keyword(null, "github-url", "github-url", 2998902775));
-  var avatar_url = cljs.core.get.call(null, map__85505__$1, new cljs.core.Keyword(null, "avatar-url", "avatar-url", 609589869));
-  var authenticated_QMARK_ = cljs.core.get.call(null, map__85505__$1, new cljs.core.Keyword(null, "authenticated?", "authenticated?", 1444332898));
+my.namespace.show_start = function show_start(p__88232) {
+  var map__88234 = p__88232;
+  var map__88234__$1 = cljs.core.seq_QMARK_.call(null, map__88234) ? cljs.core.apply.call(null, cljs.core.hash_map, map__88234) : map__88234;
+  var username = cljs.core.get.call(null, map__88234__$1, new cljs.core.Keyword(null, "username", "username", 748190792));
+  var github_url = cljs.core.get.call(null, map__88234__$1, new cljs.core.Keyword(null, "github-url", "github-url", 2998902775));
+  var avatar_url = cljs.core.get.call(null, map__88234__$1, new cljs.core.Keyword(null, "avatar-url", "avatar-url", 609589869));
+  var authenticated_QMARK_ = cljs.core.get.call(null, map__88234__$1, new cljs.core.Keyword(null, "authenticated?", "authenticated?", 1444332898));
   if (cljs.core.truth_(authenticated_QMARK_)) {
     return my.namespace.main.call(null, avatar_url, github_url, username);
   } else {
