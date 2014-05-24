@@ -3,7 +3,7 @@
             [tentacles.users :as users]
             [tentacles.repos :as repos]
             [tentacles.issues :as issues]
-            [clojure.set :refer [subset?]]))
+            [clojure.set :refer [subset? union]]))
 
 (def label1 "clear")
 (def label2 "not clear")
@@ -14,6 +14,7 @@
 (def box2 #{label4 label2})
 (def box3 #{label4 label1})
 (def box4 #{label3 label1})
+(def default #{})
 
 
 (defn found? [resp]
@@ -50,3 +51,21 @@
       (let [issues-info (map fetch-issue-info repo-issues)
             grouped-issues (group-by which-box issues-info)]
         grouped-issues))))
+
+(defn fetch-issue [username repo number]
+  (let [issue (issues/specific-issue username repo number)]
+    (when (found? issue)
+      (fetch-issue-info issue))))
+
+(defn clear-labels [labels]
+  (disj labels label1 label2 label3 label4))
+
+(defn to-the-box [access-token username repo number box]
+  (when-let [issue (fetch-issue username repo number)]
+    (let [box (get {1 box1 2 box2 3 box3 "default" default} box)
+          cleared-labels (clear-labels (:labels issue))
+          boxed-labels (union box cleared-labels)
+          new-labels (apply list boxed-labels)]
+      (issues/edit-issue username repo number {:oauth_token access-token :labels new-labels}))))
+
+
