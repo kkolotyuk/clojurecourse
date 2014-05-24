@@ -26,10 +26,25 @@
 (em/defsnippet hint :compiled "public/prototype/main.html" [".hint"] [])
 (em/defsnippet four-boxes :compiled "public/prototype/main.html" [".gogogo"] [])
 
+
+(defn ^:export show-boxes [{:keys [success message issues]}]
+  (ef/at
+    ".hint" (ef/remove-node)
+    ".gogogo" (ef/remove-node))
+  (if success
+    (do
+      (ef/at "body" (ef/append (four-boxes)))
+      (let [boxes ($ :.js-sortable)]
+        (.disableSelection (.sortable
+                            boxes
+                            (js-obj "connectWith" ".js-sortable")))))
+    (ef/at "body" (ef/append (str "<h1>" message "</h1>")))))
+
+
 (defn ^:export init-boxes [fullrepo]
   (let [[username reponame] (map str/trim (str/split fullrepo #"/"))]
     (GET (str "/issues/" username "/" reponame)
-         {:handler console-handler})))
+         {:handler show-boxes})))
 
 (defn ^:export login []
   (ef/at "body"
@@ -44,12 +59,7 @@
   (ef/at "body"
          (ef/do-> (ef/content (header))
                   (ef/append (menu avatar-url github-url username))
-                  (ef/append (four-boxes))))
-  (let [boxes ($ :.js-sortable)]
-    (console-handler (count boxes))
-    (.disableSelection (.sortable
-                      boxes
-                      (js-obj "connectWith" ".js-sortable")))))
+                  (ef/append (hint)))))
 
 (defn ^:export show-start [{:keys [authenticated? avatar-url github-url username]}]
   (if authenticated?
