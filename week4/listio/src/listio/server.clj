@@ -7,8 +7,11 @@
                                         response]]
             [tentacles.core :refer [api-call]]
             [tentacles.users :as users]
+            [tentacles.repos :as repos]
+            [tentacles.issues :as issues]
             [clj-oauth2.client :as oauth2]
-            [ring.middleware.edn :refer [wrap-edn-params]]))
+            [ring.middleware.edn :refer [wrap-edn-params]]
+            [listio.github :as github]))
 
 (defn edn-response [data & [status]]
   {:status (or status 200)
@@ -30,15 +33,12 @@
 (defn fetch-access-token [params]
   (:access-token (oauth2/get-access-token github-oauth2 params auth-req)))
 
-(defn github-user [access-token]
-  (users/me {:oauth_token access-token}))
-
 (defroutes handler
   (GET "/" [] (resource-response "index.html" {:root "public"}))
   (GET "/authorize" [] (redirect (:uri auth-req)))
   (GET "/callback" request
        (let [access-token (fetch-access-token (:params request))
-             user (github-user access-token)
+             user (github/fetch-user access-token)
              user-info {:access-token access-token
                         :avatar-url (:avatar_url user)
                         :username (:login user)
@@ -55,6 +55,16 @@
   (GET "/logout" request
        (let [resp (edn-response {:logout true})]
          (update-in resp [:session] dissoc :access-token :avatar-url :username :github-url)))
+  (GET "/repo" [username reponame]
+       (if-let [repo (github/fetch-repo username reponame)]
+         (if (pos? (:open_issues repo))
+           (let [issues ])
+           (edn-response {:success true
+                          :repository })
+           (edn-response {:success false
+                          :message "There are no open issues in this repository"}))
+         (edn-response {:success false
+                        :message "Repository not found"}))
   (GET "/foo" [] (str (github-user)))
   (route/resources "/"))
 
