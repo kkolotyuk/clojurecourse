@@ -17,15 +17,15 @@
 (def default #{})
 
 
-(defn found? [resp]
-  (not= 404 (:status resp)))
+(defn success? [resp]
+  (not (contains? #{404 403} (:status resp))))
 
 (defn fetch-user [access-token]
   (users/me {:oauth_token access-token}))
 
 (defn fetch-repo [username repo]
   (let [resp (repos/specific-repo username repo)]
-    (when (found? resp)
+    (when (success? resp)
       resp)))
 
 (defn which-box [issue]
@@ -49,14 +49,14 @@
 
 (defn fetch-open-issues [username repo]
   (let [repo-issues (issues/issues username repo)]
-    (when (found? repo-issues)
+    (when (success? repo-issues)
       (let [issues-info (map #(fetch-issue-info % username repo) repo-issues)
             grouped-issues (group-by which-box issues-info)]
         grouped-issues))))
 
 (defn fetch-issue [username repo number]
   (let [issue (issues/specific-issue username repo number)]
-    (when (found? issue)
+    (when (success? issue)
       (fetch-issue-info issue username repo))))
 
 (defn clear-labels [labels]
@@ -67,8 +67,10 @@
     (let [box (get {"1" box1 "2" box2 "3" box3 "4" box4 "default" default} box)
           cleared-labels (clear-labels (set (:labels issue)))
           boxed-labels (union box cleared-labels)
-          new-labels (apply list boxed-labels)]
-      (issues/edit-issue username repo number {:oauth_token access-token :labels new-labels})
-      {:success true})))
+          new-labels (apply list boxed-labels)
+          resp (issues/edit-issue username repo number {:oauth_token access-token :labels new-labels})]
+      (if (success? resp)
+        {:success true}
+        {:success false :message "Something went wrong. May be you don't have permissions to change these issues."}))))
 
 
