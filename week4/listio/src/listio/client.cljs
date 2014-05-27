@@ -48,7 +48,12 @@
         {:params {:username username
                   :repo repo
                   :number number
-                  :box box}}))
+                  :box box}
+         :handler #(when-not (:success %)
+                     (ef/at ".hint" (ef/remove-node)
+                            ".warning" (ef/remove-node)
+                            ".gogogo" (ef/remove-node))
+                     (ef/at "body" (ef/append (warning (:message %)))))}))
 
 (defn ^:export receive-callback [event ui]
   (this-as this

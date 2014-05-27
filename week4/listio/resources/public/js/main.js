@@ -7786,16 +7786,16 @@ cljs.core.fn_QMARK_ = function(a) {
 };
 cljs.core.with_meta = function with_meta(b, c) {
   return cljs.core.fn_QMARK_.call(null, b) && !(b ? b.cljs$lang$protocol_mask$partition0$ & 262144 || b.cljs$core$IWithMeta$ || (b.cljs$lang$protocol_mask$partition0$ ? 0 : cljs.core.native_satisfies_QMARK_.call(null, cljs.core.IWithMeta, b)) : cljs.core.native_satisfies_QMARK_.call(null, cljs.core.IWithMeta, b)) ? with_meta.call(null, function() {
-    "undefined" === typeof cljs.core.t6145 && (cljs.core.t6145 = function(b, c, f, g) {
+    "undefined" === typeof cljs.core.t6146 && (cljs.core.t6146 = function(b, c, f, g) {
       this.meta = b;
       this.o = c;
       this.with_meta = f;
-      this.meta6146 = g;
+      this.meta6147 = g;
       this.cljs$lang$protocol_mask$partition1$ = 0;
       this.cljs$lang$protocol_mask$partition0$ = 393217;
-    }, cljs.core.t6145.cljs$lang$type = !0, cljs.core.t6145.cljs$lang$ctorStr = "cljs.core/t6145", cljs.core.t6145.cljs$lang$ctorPrWriter = function(b, c, f) {
-      return cljs.core._write.call(null, c, "cljs.core/t6145");
-    }, cljs.core.t6145.prototype.call = function() {
+    }, cljs.core.t6146.cljs$lang$type = !0, cljs.core.t6146.cljs$lang$ctorStr = "cljs.core/t6146", cljs.core.t6146.cljs$lang$ctorPrWriter = function(b, c, f) {
+      return cljs.core._write.call(null, c, "cljs.core/t6146");
+    }, cljs.core.t6146.prototype.call = function() {
       var b = function(b, c) {
         return cljs.core.apply.call(null, b.o, c);
       }, c = function(c, e) {
@@ -7812,9 +7812,9 @@ cljs.core.with_meta = function with_meta(b, c) {
       };
       c.cljs$core$IFn$_invoke$arity$variadic = b;
       return c;
-    }(), cljs.core.t6145.prototype.apply = function(b, c) {
+    }(), cljs.core.t6146.prototype.apply = function(b, c) {
       return this.call.apply(this, [this].concat(cljs.core.aclone.call(null, c)));
-    }, cljs.core.t6145.prototype.cljs$core$IFn$_invoke$arity$2 = function() {
+    }, cljs.core.t6146.prototype.cljs$core$IFn$_invoke$arity$2 = function() {
       var b = function(b) {
         return cljs.core.apply.call(null, self__.o, b);
       }, c = function(c) {
@@ -7829,14 +7829,14 @@ cljs.core.with_meta = function with_meta(b, c) {
       };
       c.cljs$core$IFn$_invoke$arity$variadic = b;
       return c;
-    }(), cljs.core.t6145.prototype.cljs$core$Fn$ = !0, cljs.core.t6145.prototype.cljs$core$IMeta$_meta$arity$1 = function(b) {
-      return this.meta6146;
-    }, cljs.core.t6145.prototype.cljs$core$IWithMeta$_with_meta$arity$2 = function(b, c) {
-      return new cljs.core.t6145(this.meta, this.o, this.with_meta, c);
-    }, cljs.core.__GT_t6145 = function(b, c, f, g) {
-      return new cljs.core.t6145(b, c, f, g);
+    }(), cljs.core.t6146.prototype.cljs$core$Fn$ = !0, cljs.core.t6146.prototype.cljs$core$IMeta$_meta$arity$1 = function(b) {
+      return this.meta6147;
+    }, cljs.core.t6146.prototype.cljs$core$IWithMeta$_with_meta$arity$2 = function(b, c) {
+      return new cljs.core.t6146(this.meta, this.o, this.with_meta, c);
+    }, cljs.core.__GT_t6146 = function(b, c, f, g) {
+      return new cljs.core.t6146(b, c, f, g);
     });
-    return new cljs.core.t6145(c, b, with_meta, null);
+    return new cljs.core.t6146(c, b, with_meta, null);
   }(), c) : null == b ? null : cljs.core._with_meta.call(null, b, c);
 };
 cljs.core.meta = function(a) {
@@ -21649,11 +21649,11 @@ goog.dom.DomHelper.prototype.isNodeList = goog.dom.isNodeList;
 goog.dom.DomHelper.prototype.getAncestorByTagNameAndClass = goog.dom.getAncestorByTagNameAndClass;
 goog.dom.DomHelper.prototype.getAncestorByClass = goog.dom.getAncestorByClass;
 goog.dom.DomHelper.prototype.getAncestor = goog.dom.getAncestor;
-var domina = {support:{}}, div_8118 = document.createElement("div"), test_html_8119 = "   \x3clink/\x3e\x3ctable\x3e\x3c/table\x3e\x3ca href\x3d'/a' style\x3d'top:1px;float:left;opacity:.55;'\x3ea\x3c/a\x3e\x3cinput type\x3d'checkbox'/\x3e";
-div_8118.innerHTML = test_html_8119;
-domina.support.leading_whitespace_QMARK_ = cljs.core._EQ_.call(null, div_8118.firstChild.nodeType, 3);
-domina.support.extraneous_tbody_QMARK_ = cljs.core._EQ_.call(null, div_8118.getElementsByTagName("tbody").length, 0);
-domina.support.unscoped_html_elements_QMARK_ = cljs.core._EQ_.call(null, div_8118.getElementsByTagName("link").length, 0);
+var domina = {support:{}}, div_8119 = document.createElement("div"), test_html_8120 = "   \x3clink/\x3e\x3ctable\x3e\x3c/table\x3e\x3ca href\x3d'/a' style\x3d'top:1px;float:left;opacity:.55;'\x3ea\x3c/a\x3e\x3cinput type\x3d'checkbox'/\x3e";
+div_8119.innerHTML = test_html_8120;
+domina.support.leading_whitespace_QMARK_ = cljs.core._EQ_.call(null, div_8119.firstChild.nodeType, 3);
+domina.support.extraneous_tbody_QMARK_ = cljs.core._EQ_.call(null, div_8119.getElementsByTagName("tbody").length, 0);
+domina.support.unscoped_html_elements_QMARK_ = cljs.core._EQ_.call(null, div_8119.getElementsByTagName("link").length, 0);
 goog.dom.vendor = {};
 goog.dom.vendor.getVendorJsPrefix = function() {
   return goog.userAgent.WEBKIT ? "Webkit" : goog.userAgent.GECKO ? "Moz" : goog.userAgent.IE ? "ms" : goog.userAgent.OPERA ? "O" : null;
@@ -22532,11 +22532,11 @@ domina.re_xhtml_tag = /<(?!area|br|col|embed|hr|img|input|link|meta|param)(([\w:
 domina.re_tag_name = /<([\w:]+)/;
 domina.re_no_inner_html = /<(?:script|style)/i;
 domina.re_tbody = /<tbody/i;
-var opt_wrapper_7668 = new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [1, "\x3cselect multiple\x3d'multiple'\x3e", "\x3c/select\x3e"], null), table_section_wrapper_7669 = new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [1, "\x3ctable\x3e", "\x3c/table\x3e"], null), cell_wrapper_7670 = new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [3, "\x3ctable\x3e\x3ctbody\x3e\x3ctr\x3e", "\x3c/tr\x3e\x3c/tbody\x3e\x3c/table\x3e"], 
+var opt_wrapper_7669 = new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [1, "\x3cselect multiple\x3d'multiple'\x3e", "\x3c/select\x3e"], null), table_section_wrapper_7670 = new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [1, "\x3ctable\x3e", "\x3c/table\x3e"], null), cell_wrapper_7671 = new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [3, "\x3ctable\x3e\x3ctbody\x3e\x3ctr\x3e", "\x3c/tr\x3e\x3c/tbody\x3e\x3c/table\x3e"], 
 null);
-domina.wrap_map = cljs.core.PersistentHashMap.fromArrays(["td", "optgroup", "tfoot", "tr", "area", new cljs.core.Keyword(null, "default", "default", 2558708147), "option", "legend", "thead", "col", "caption", "th", "colgroup", "tbody"], [cell_wrapper_7670, opt_wrapper_7668, table_section_wrapper_7669, new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [2, "\x3ctable\x3e\x3ctbody\x3e", "\x3c/tbody\x3e\x3c/table\x3e"], null), new cljs.core.PersistentVector(null, 3, 5, 
-cljs.core.PersistentVector.EMPTY_NODE, [1, "\x3cmap\x3e", "\x3c/map\x3e"], null), new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [0, "", ""], null), opt_wrapper_7668, new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [1, "\x3cfieldset\x3e", "\x3c/fieldset\x3e"], null), table_section_wrapper_7669, new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [2, "\x3ctable\x3e\x3ctbody\x3e\x3c/tbody\x3e\x3ccolgroup\x3e", 
-"\x3c/colgroup\x3e\x3c/table\x3e"], null), table_section_wrapper_7669, cell_wrapper_7670, table_section_wrapper_7669, table_section_wrapper_7669]);
+domina.wrap_map = cljs.core.PersistentHashMap.fromArrays(["td", "optgroup", "tfoot", "tr", "area", new cljs.core.Keyword(null, "default", "default", 2558708147), "option", "legend", "thead", "col", "caption", "th", "colgroup", "tbody"], [cell_wrapper_7671, opt_wrapper_7669, table_section_wrapper_7670, new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [2, "\x3ctable\x3e\x3ctbody\x3e", "\x3c/tbody\x3e\x3c/table\x3e"], null), new cljs.core.PersistentVector(null, 3, 5, 
+cljs.core.PersistentVector.EMPTY_NODE, [1, "\x3cmap\x3e", "\x3c/map\x3e"], null), new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [0, "", ""], null), opt_wrapper_7669, new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [1, "\x3cfieldset\x3e", "\x3c/fieldset\x3e"], null), table_section_wrapper_7670, new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [2, "\x3ctable\x3e\x3ctbody\x3e\x3c/tbody\x3e\x3ccolgroup\x3e", 
+"\x3c/colgroup\x3e\x3c/table\x3e"], null), table_section_wrapper_7670, cell_wrapper_7671, table_section_wrapper_7670, table_section_wrapper_7670]);
 domina.remove_extraneous_tbody_BANG_ = function(a, b, c, d) {
   b = cljs.core.not.call(null, cljs.core.re_find.call(null, domina.re_tbody, b));
   cljs.core._EQ_.call(null, c, "table") && b ? (c = a.firstChild, a = cljs.core.truth_(c) ? a.firstChild.childNodes : c) : a = cljs.core._EQ_.call(null, d, "\x3ctable\x3e") && b ? divchildNodes : cljs.core.PersistentVector.EMPTY;
@@ -23614,37 +23614,37 @@ domina.css.sel = function() {
   var a = null, b = function(b) {
     return a.call(null, domina.css.root_element.call(null), b);
   }, c = function(b, c) {
-    "undefined" === typeof domina.css.t8125 && (domina.css.t8125 = function(a, b, c, d) {
+    "undefined" === typeof domina.css.t8126 && (domina.css.t8126 = function(a, b, c, d) {
       this.expr = a;
       this.base = b;
       this.sel = c;
-      this.meta8126 = d;
+      this.meta8127 = d;
       this.cljs$lang$protocol_mask$partition1$ = 0;
       this.cljs$lang$protocol_mask$partition0$ = 393216;
-    }, domina.css.t8125.cljs$lang$type = !0, domina.css.t8125.cljs$lang$ctorStr = "domina.css/t8125", domina.css.t8125.cljs$lang$ctorPrWriter = function(a, b, c) {
-      return cljs.core._write.call(null, b, "domina.css/t8125");
-    }, domina.css.t8125.prototype.domina$DomContent$ = !0, domina.css.t8125.prototype.domina$DomContent$nodes$arity$1 = function(a) {
+    }, domina.css.t8126.cljs$lang$type = !0, domina.css.t8126.cljs$lang$ctorStr = "domina.css/t8126", domina.css.t8126.cljs$lang$ctorPrWriter = function(a, b, c) {
+      return cljs.core._write.call(null, b, "domina.css/t8126");
+    }, domina.css.t8126.prototype.domina$DomContent$ = !0, domina.css.t8126.prototype.domina$DomContent$nodes$arity$1 = function(a) {
       var b = this;
       return cljs.core.mapcat.call(null, function(a) {
         return function(a) {
           return domina.normalize_seq.call(null, goog.dom.query(b.expr, a));
         };
       }(this), domina.nodes.call(null, b.base));
-    }, domina.css.t8125.prototype.domina$DomContent$single_node$arity$1 = function(a) {
+    }, domina.css.t8126.prototype.domina$DomContent$single_node$arity$1 = function(a) {
       var b = this;
       return cljs.core.first.call(null, cljs.core.filter.call(null, cljs.core.complement.call(null, cljs.core.nil_QMARK_), cljs.core.mapcat.call(null, function(a) {
         return function(a) {
           return domina.normalize_seq.call(null, goog.dom.query(b.expr, a));
         };
       }(this), domina.nodes.call(null, b.base))));
-    }, domina.css.t8125.prototype.cljs$core$IMeta$_meta$arity$1 = function(a) {
-      return this.meta8126;
-    }, domina.css.t8125.prototype.cljs$core$IWithMeta$_with_meta$arity$2 = function(a, b) {
-      return new domina.css.t8125(this.expr, this.base, this.sel, b);
-    }, domina.css.__GT_t8125 = function(a, b, c, d) {
-      return new domina.css.t8125(a, b, c, d);
+    }, domina.css.t8126.prototype.cljs$core$IMeta$_meta$arity$1 = function(a) {
+      return this.meta8127;
+    }, domina.css.t8126.prototype.cljs$core$IWithMeta$_with_meta$arity$2 = function(a, b) {
+      return new domina.css.t8126(this.expr, this.base, this.sel, b);
+    }, domina.css.__GT_t8126 = function(a, b, c, d) {
+      return new domina.css.t8126(a, b, c, d);
     });
-    return new domina.css.t8125(c, b, a, null);
+    return new domina.css.t8126(c, b, a, null);
   }, a = function(a, e) {
     switch(arguments.length) {
       case 1:
@@ -23738,27 +23738,27 @@ domina.xpath.xpath = function() {
   var a = null, b = function(b) {
     return a.call(null, domina.xpath.root_element.call(null), b);
   }, c = function(b, c) {
-    "undefined" === typeof domina.xpath.t7665 && (domina.xpath.t7665 = function(a, b, c, d) {
+    "undefined" === typeof domina.xpath.t7666 && (domina.xpath.t7666 = function(a, b, c, d) {
       this.expr = a;
       this.base = b;
       this.xpath = c;
-      this.meta7666 = d;
+      this.meta7667 = d;
       this.cljs$lang$protocol_mask$partition1$ = 0;
       this.cljs$lang$protocol_mask$partition0$ = 393216;
-    }, domina.xpath.t7665.cljs$lang$type = !0, domina.xpath.t7665.cljs$lang$ctorStr = "domina.xpath/t7665", domina.xpath.t7665.cljs$lang$ctorPrWriter = function(a, b, c) {
-      return cljs.core._write.call(null, b, "domina.xpath/t7665");
-    }, domina.xpath.t7665.prototype.domina$DomContent$ = !0, domina.xpath.t7665.prototype.domina$DomContent$nodes$arity$1 = function(a) {
+    }, domina.xpath.t7666.cljs$lang$type = !0, domina.xpath.t7666.cljs$lang$ctorStr = "domina.xpath/t7666", domina.xpath.t7666.cljs$lang$ctorPrWriter = function(a, b, c) {
+      return cljs.core._write.call(null, b, "domina.xpath/t7666");
+    }, domina.xpath.t7666.prototype.domina$DomContent$ = !0, domina.xpath.t7666.prototype.domina$DomContent$nodes$arity$1 = function(a) {
       return cljs.core.mapcat.call(null, cljs.core.partial.call(null, domina.xpath.select_nodes, this.expr), domina.nodes.call(null, this.base));
-    }, domina.xpath.t7665.prototype.domina$DomContent$single_node$arity$1 = function(a) {
+    }, domina.xpath.t7666.prototype.domina$DomContent$single_node$arity$1 = function(a) {
       return cljs.core.first.call(null, cljs.core.filter.call(null, cljs.core.complement.call(null, cljs.core.nil_QMARK_), cljs.core.map.call(null, cljs.core.partial.call(null, domina.xpath.select_node, this.expr), domina.nodes.call(null, this.base))));
-    }, domina.xpath.t7665.prototype.cljs$core$IMeta$_meta$arity$1 = function(a) {
-      return this.meta7666;
-    }, domina.xpath.t7665.prototype.cljs$core$IWithMeta$_with_meta$arity$2 = function(a, b) {
-      return new domina.xpath.t7665(this.expr, this.base, this.xpath, b);
-    }, domina.xpath.__GT_t7665 = function(a, b, c, d) {
-      return new domina.xpath.t7665(a, b, c, d);
+    }, domina.xpath.t7666.prototype.cljs$core$IMeta$_meta$arity$1 = function(a) {
+      return this.meta7667;
+    }, domina.xpath.t7666.prototype.cljs$core$IWithMeta$_with_meta$arity$2 = function(a, b) {
+      return new domina.xpath.t7666(this.expr, this.base, this.xpath, b);
+    }, domina.xpath.__GT_t7666 = function(a, b, c, d) {
+      return new domina.xpath.t7666(a, b, c, d);
     });
-    return new domina.xpath.t7665(c, b, a, null);
+    return new domina.xpath.t7666(c, b, a, null);
   }, a = function(a, e) {
     switch(arguments.length) {
       case 1:
@@ -24464,19 +24464,19 @@ enfocus.core.extr_multi_node = function() {
       var k = enfocus.core.nodes__GT_coll.call(null, a), k = cljs.core.map.call(null, b, k), k = cljs.core.truth_(c) ? cljs.core.filter.call(null, c, k) : k;
       return 1 >= cljs.core.count.call(null, k) ? cljs.core.first.call(null, k) : k;
     };
-    "undefined" === typeof enfocus.core.t7236 && (enfocus.core.t7236 = function(a, b, c, d, e) {
+    "undefined" === typeof enfocus.core.t7237 && (enfocus.core.t7237 = function(a, b, c, d, e) {
       this.trans = a;
       this.filt = b;
       this.func = c;
       this.extr_multi_node = d;
-      this.meta7237 = e;
+      this.meta7238 = e;
       this.cljs$lang$protocol_mask$partition1$ = 0;
       this.cljs$lang$protocol_mask$partition0$ = 393217;
-    }, enfocus.core.t7236.cljs$lang$type = !0, enfocus.core.t7236.cljs$lang$ctorStr = "enfocus.core/t7236", enfocus.core.t7236.cljs$lang$ctorPrWriter = function(a) {
+    }, enfocus.core.t7237.cljs$lang$type = !0, enfocus.core.t7237.cljs$lang$ctorStr = "enfocus.core/t7237", enfocus.core.t7237.cljs$lang$ctorPrWriter = function(a) {
       return function(a, b, c) {
-        return cljs.core._write.call(null, b, "enfocus.core/t7236");
+        return cljs.core._write.call(null, b, "enfocus.core/t7237");
       };
-    }(f), enfocus.core.t7236.prototype.call = function(a) {
+    }(f), enfocus.core.t7237.prototype.call = function(a) {
       return function() {
         var a = null;
         return a = function(a, b, c) {
@@ -24489,40 +24489,40 @@ enfocus.core.extr_multi_node = function() {
           throw Error("Invalid arity: " + arguments.length);
         };
       }();
-    }(f), enfocus.core.t7236.prototype.apply = function(a) {
+    }(f), enfocus.core.t7237.prototype.apply = function(a) {
       return function(a, b) {
         return this.call.apply(this, [this].concat(cljs.core.aclone.call(null, b)));
       };
-    }(f), enfocus.core.t7236.prototype.cljs$core$IFn$_invoke$arity$1 = function(a) {
+    }(f), enfocus.core.t7237.prototype.cljs$core$IFn$_invoke$arity$1 = function(a) {
       return function(a) {
         return this.trans.call(null, a, null);
       };
-    }(f), enfocus.core.t7236.prototype.cljs$core$IFn$_invoke$arity$2 = function(a) {
+    }(f), enfocus.core.t7237.prototype.cljs$core$IFn$_invoke$arity$2 = function(a) {
       return function(a, b) {
         return this.trans.call(null, a, b);
       };
-    }(f), enfocus.core.t7236.prototype.enfocus$core$ITransform$ = !0, enfocus.core.t7236.prototype.enfocus$core$ITransform$apply_transform$arity$2 = function(a) {
+    }(f), enfocus.core.t7237.prototype.enfocus$core$ITransform$ = !0, enfocus.core.t7237.prototype.enfocus$core$ITransform$apply_transform$arity$2 = function(a) {
       return function(a, b) {
         return this.trans.call(null, b, null);
       };
-    }(f), enfocus.core.t7236.prototype.enfocus$core$ITransform$apply_transform$arity$3 = function(a) {
+    }(f), enfocus.core.t7237.prototype.enfocus$core$ITransform$apply_transform$arity$3 = function(a) {
       return function(a, b, c) {
         return this.trans.call(null, b, c);
       };
-    }(f), enfocus.core.t7236.prototype.cljs$core$IMeta$_meta$arity$1 = function(a) {
+    }(f), enfocus.core.t7237.prototype.cljs$core$IMeta$_meta$arity$1 = function(a) {
       return function(a) {
-        return this.meta7237;
+        return this.meta7238;
       };
-    }(f), enfocus.core.t7236.prototype.cljs$core$IWithMeta$_with_meta$arity$2 = function(a) {
+    }(f), enfocus.core.t7237.prototype.cljs$core$IWithMeta$_with_meta$arity$2 = function(a) {
       return function(a, b) {
-        return new enfocus.core.t7236(this.trans, this.filt, this.func, this.extr_multi_node, b);
+        return new enfocus.core.t7237(this.trans, this.filt, this.func, this.extr_multi_node, b);
       };
-    }(f), enfocus.core.__GT_t7236 = function(a) {
+    }(f), enfocus.core.__GT_t7237 = function(a) {
       return function(a, b, c, d, e) {
-        return new enfocus.core.t7236(a, b, c, d, e);
+        return new enfocus.core.t7237(a, b, c, d, e);
       };
     }(f));
-    return new enfocus.core.t7236(f, c, b, a, null);
+    return new enfocus.core.t7237(f, c, b, a, null);
   }, a = function(a, e) {
     switch(arguments.length) {
       case 1:
@@ -24542,18 +24542,18 @@ enfocus.core.multi_node_chain = function() {
       var e = b.call(null, a);
       return cljs.core.truth_(c) ? enfocus.core.apply_transform.call(null, c, a) : e;
     };
-    "undefined" === typeof enfocus.core.t7250 && (enfocus.core.t7250 = function(a, b, c, d) {
+    "undefined" === typeof enfocus.core.t7251 && (enfocus.core.t7251 = function(a, b, c, d) {
       this.trans = a;
       this.func = b;
       this.multi_node_chain = c;
-      this.meta7251 = d;
+      this.meta7252 = d;
       this.cljs$lang$protocol_mask$partition1$ = 0;
       this.cljs$lang$protocol_mask$partition0$ = 393217;
-    }, enfocus.core.t7250.cljs$lang$type = !0, enfocus.core.t7250.cljs$lang$ctorStr = "enfocus.core/t7250", enfocus.core.t7250.cljs$lang$ctorPrWriter = function(a) {
+    }, enfocus.core.t7251.cljs$lang$type = !0, enfocus.core.t7251.cljs$lang$ctorStr = "enfocus.core/t7251", enfocus.core.t7251.cljs$lang$ctorPrWriter = function(a) {
       return function(a, b, c) {
-        return cljs.core._write.call(null, b, "enfocus.core/t7250");
+        return cljs.core._write.call(null, b, "enfocus.core/t7251");
       };
-    }(c), enfocus.core.t7250.prototype.call = function(a) {
+    }(c), enfocus.core.t7251.prototype.call = function(a) {
       return function() {
         var a = null;
         return a = function(a, b, c) {
@@ -24566,40 +24566,40 @@ enfocus.core.multi_node_chain = function() {
           throw Error("Invalid arity: " + arguments.length);
         };
       }();
-    }(c), enfocus.core.t7250.prototype.apply = function(a) {
+    }(c), enfocus.core.t7251.prototype.apply = function(a) {
       return function(a, b) {
         return this.call.apply(this, [this].concat(cljs.core.aclone.call(null, b)));
       };
-    }(c), enfocus.core.t7250.prototype.cljs$core$IFn$_invoke$arity$1 = function(a) {
+    }(c), enfocus.core.t7251.prototype.cljs$core$IFn$_invoke$arity$1 = function(a) {
       return function(a) {
         return this.trans.call(null, a, null);
       };
-    }(c), enfocus.core.t7250.prototype.cljs$core$IFn$_invoke$arity$2 = function(a) {
+    }(c), enfocus.core.t7251.prototype.cljs$core$IFn$_invoke$arity$2 = function(a) {
       return function(a, b) {
         return this.trans.call(null, a, b);
       };
-    }(c), enfocus.core.t7250.prototype.enfocus$core$ITransform$ = !0, enfocus.core.t7250.prototype.enfocus$core$ITransform$apply_transform$arity$2 = function(a) {
+    }(c), enfocus.core.t7251.prototype.enfocus$core$ITransform$ = !0, enfocus.core.t7251.prototype.enfocus$core$ITransform$apply_transform$arity$2 = function(a) {
       return function(a, b) {
         return this.trans.call(null, b, null);
       };
-    }(c), enfocus.core.t7250.prototype.enfocus$core$ITransform$apply_transform$arity$3 = function(a) {
+    }(c), enfocus.core.t7251.prototype.enfocus$core$ITransform$apply_transform$arity$3 = function(a) {
       return function(a, b, c) {
         return this.trans.call(null, b, c);
       };
-    }(c), enfocus.core.t7250.prototype.cljs$core$IMeta$_meta$arity$1 = function(a) {
+    }(c), enfocus.core.t7251.prototype.cljs$core$IMeta$_meta$arity$1 = function(a) {
       return function(a) {
-        return this.meta7251;
+        return this.meta7252;
       };
-    }(c), enfocus.core.t7250.prototype.cljs$core$IWithMeta$_with_meta$arity$2 = function(a) {
+    }(c), enfocus.core.t7251.prototype.cljs$core$IWithMeta$_with_meta$arity$2 = function(a) {
       return function(a, b) {
-        return new enfocus.core.t7250(this.trans, this.func, this.multi_node_chain, b);
+        return new enfocus.core.t7251(this.trans, this.func, this.multi_node_chain, b);
       };
-    }(c), enfocus.core.__GT_t7250 = function(a) {
+    }(c), enfocus.core.__GT_t7251 = function(a) {
       return function(a, b, c, d) {
-        return new enfocus.core.t7250(a, b, c, d);
+        return new enfocus.core.t7251(a, b, c, d);
       };
     }(c));
-    return new enfocus.core.t7250(c, b, a, null);
+    return new enfocus.core.t7251(c, b, a, null);
   }, c = function(b, c) {
     var f = function(a, f) {
       var k = cljs.core.mapcat.call(null, function(a) {
@@ -24607,19 +24607,19 @@ enfocus.core.multi_node_chain = function() {
       }, b), k = c.call(null, a, k);
       return cljs.core.truth_(f) ? enfocus.core.apply_transform.call(null, f, a) : k;
     };
-    "undefined" === typeof enfocus.core.t7254 && (enfocus.core.t7254 = function(a, b, c, d, e) {
+    "undefined" === typeof enfocus.core.t7255 && (enfocus.core.t7255 = function(a, b, c, d, e) {
       this.trans = a;
       this.func = b;
       this.values = c;
       this.multi_node_chain = d;
-      this.meta7255 = e;
+      this.meta7256 = e;
       this.cljs$lang$protocol_mask$partition1$ = 0;
       this.cljs$lang$protocol_mask$partition0$ = 393217;
-    }, enfocus.core.t7254.cljs$lang$type = !0, enfocus.core.t7254.cljs$lang$ctorStr = "enfocus.core/t7254", enfocus.core.t7254.cljs$lang$ctorPrWriter = function(a) {
+    }, enfocus.core.t7255.cljs$lang$type = !0, enfocus.core.t7255.cljs$lang$ctorStr = "enfocus.core/t7255", enfocus.core.t7255.cljs$lang$ctorPrWriter = function(a) {
       return function(a, b, c) {
-        return cljs.core._write.call(null, b, "enfocus.core/t7254");
+        return cljs.core._write.call(null, b, "enfocus.core/t7255");
       };
-    }(f), enfocus.core.t7254.prototype.call = function(a) {
+    }(f), enfocus.core.t7255.prototype.call = function(a) {
       return function() {
         var a = null;
         return a = function(a, b, c) {
@@ -24632,40 +24632,40 @@ enfocus.core.multi_node_chain = function() {
           throw Error("Invalid arity: " + arguments.length);
         };
       }();
-    }(f), enfocus.core.t7254.prototype.apply = function(a) {
+    }(f), enfocus.core.t7255.prototype.apply = function(a) {
       return function(a, b) {
         return this.call.apply(this, [this].concat(cljs.core.aclone.call(null, b)));
       };
-    }(f), enfocus.core.t7254.prototype.cljs$core$IFn$_invoke$arity$1 = function(a) {
+    }(f), enfocus.core.t7255.prototype.cljs$core$IFn$_invoke$arity$1 = function(a) {
       return function(a) {
         return this.trans.call(null, a, null);
       };
-    }(f), enfocus.core.t7254.prototype.cljs$core$IFn$_invoke$arity$2 = function(a) {
+    }(f), enfocus.core.t7255.prototype.cljs$core$IFn$_invoke$arity$2 = function(a) {
       return function(a, b) {
         return this.trans.call(null, a, b);
       };
-    }(f), enfocus.core.t7254.prototype.enfocus$core$ITransform$ = !0, enfocus.core.t7254.prototype.enfocus$core$ITransform$apply_transform$arity$2 = function(a) {
+    }(f), enfocus.core.t7255.prototype.enfocus$core$ITransform$ = !0, enfocus.core.t7255.prototype.enfocus$core$ITransform$apply_transform$arity$2 = function(a) {
       return function(a, b) {
         return this.trans.call(null, b, null);
       };
-    }(f), enfocus.core.t7254.prototype.enfocus$core$ITransform$apply_transform$arity$3 = function(a) {
+    }(f), enfocus.core.t7255.prototype.enfocus$core$ITransform$apply_transform$arity$3 = function(a) {
       return function(a, b, c) {
         return this.trans.call(null, b, c);
       };
-    }(f), enfocus.core.t7254.prototype.cljs$core$IMeta$_meta$arity$1 = function(a) {
+    }(f), enfocus.core.t7255.prototype.cljs$core$IMeta$_meta$arity$1 = function(a) {
       return function(a) {
-        return this.meta7255;
+        return this.meta7256;
       };
-    }(f), enfocus.core.t7254.prototype.cljs$core$IWithMeta$_with_meta$arity$2 = function(a) {
+    }(f), enfocus.core.t7255.prototype.cljs$core$IWithMeta$_with_meta$arity$2 = function(a) {
       return function(a, b) {
-        return new enfocus.core.t7254(this.trans, this.func, this.values, this.multi_node_chain, b);
+        return new enfocus.core.t7255(this.trans, this.func, this.values, this.multi_node_chain, b);
       };
-    }(f), enfocus.core.__GT_t7254 = function(a) {
+    }(f), enfocus.core.__GT_t7255 = function(a) {
       return function(a, b, c, d, e) {
-        return new enfocus.core.t7254(a, b, c, d, e);
+        return new enfocus.core.t7255(a, b, c, d, e);
       };
     }(f));
-    return new enfocus.core.t7254(f, c, b, a, null);
+    return new enfocus.core.t7255(f, c, b, a, null);
   }, a = function(a, e) {
     switch(arguments.length) {
       case 1:
@@ -25256,17 +25256,17 @@ enfocus.core.read_form_input = function read_form_input() {
     }(e), cljs.core.PersistentHashSet.EMPTY, e);
     return cljs.core.empty_QMARK_.call(null, f) ? null : cljs.core._EQ_.call(null, 1, cljs.core.count.call(null, f)) && cljs.core.not.call(null, (new cljs.core.PersistentHashSet(null, new cljs.core.PersistentArrayMap(null, 2, ["checkbox", null, "select-multiple", null], null), null)).call(null, cljs.core.first.call(null, e).type)) ? cljs.core.first.call(null, f) : new cljs.core.Keyword(null, "else", "else", 1017020587) ? f : null;
   };
-  "undefined" === typeof enfocus.core.t7575 && (enfocus.core.t7575 = function(b, d, e) {
+  "undefined" === typeof enfocus.core.t7576 && (enfocus.core.t7576 = function(b, d, e) {
     this.trans = b;
     this.read_form_input = d;
-    this.meta7576 = e;
+    this.meta7577 = e;
     this.cljs$lang$protocol_mask$partition1$ = 0;
     this.cljs$lang$protocol_mask$partition0$ = 393217;
-  }, enfocus.core.t7575.cljs$lang$type = !0, enfocus.core.t7575.cljs$lang$ctorStr = "enfocus.core/t7575", enfocus.core.t7575.cljs$lang$ctorPrWriter = function(b) {
+  }, enfocus.core.t7576.cljs$lang$type = !0, enfocus.core.t7576.cljs$lang$ctorStr = "enfocus.core/t7576", enfocus.core.t7576.cljs$lang$ctorPrWriter = function(b) {
     return function(b, c, f) {
-      return cljs.core._write.call(null, c, "enfocus.core/t7575");
+      return cljs.core._write.call(null, c, "enfocus.core/t7576");
     };
-  }(b), enfocus.core.t7575.prototype.call = function(b) {
+  }(b), enfocus.core.t7576.prototype.call = function(b) {
     return function() {
       var b = null;
       return b = function(b, c, d) {
@@ -25279,40 +25279,40 @@ enfocus.core.read_form_input = function read_form_input() {
         throw Error("Invalid arity: " + arguments.length);
       };
     }();
-  }(b), enfocus.core.t7575.prototype.apply = function(b) {
+  }(b), enfocus.core.t7576.prototype.apply = function(b) {
     return function(b, c) {
       return this.call.apply(this, [this].concat(cljs.core.aclone.call(null, c)));
     };
-  }(b), enfocus.core.t7575.prototype.cljs$core$IFn$_invoke$arity$1 = function(b) {
+  }(b), enfocus.core.t7576.prototype.cljs$core$IFn$_invoke$arity$1 = function(b) {
     return function(b) {
       return this.trans.call(null, b, null);
     };
-  }(b), enfocus.core.t7575.prototype.cljs$core$IFn$_invoke$arity$2 = function(b) {
+  }(b), enfocus.core.t7576.prototype.cljs$core$IFn$_invoke$arity$2 = function(b) {
     return function(b, c) {
       return this.trans.call(null, b, c);
     };
-  }(b), enfocus.core.t7575.prototype.enfocus$core$ITransform$ = !0, enfocus.core.t7575.prototype.enfocus$core$ITransform$apply_transform$arity$2 = function(b) {
+  }(b), enfocus.core.t7576.prototype.enfocus$core$ITransform$ = !0, enfocus.core.t7576.prototype.enfocus$core$ITransform$apply_transform$arity$2 = function(b) {
     return function(b, c) {
       return this.trans.call(null, c, null);
     };
-  }(b), enfocus.core.t7575.prototype.enfocus$core$ITransform$apply_transform$arity$3 = function(b) {
+  }(b), enfocus.core.t7576.prototype.enfocus$core$ITransform$apply_transform$arity$3 = function(b) {
     return function(b, c, f) {
       return this.trans.call(null, c, f);
     };
-  }(b), enfocus.core.t7575.prototype.cljs$core$IMeta$_meta$arity$1 = function(b) {
+  }(b), enfocus.core.t7576.prototype.cljs$core$IMeta$_meta$arity$1 = function(b) {
     return function(b) {
-      return this.meta7576;
+      return this.meta7577;
     };
-  }(b), enfocus.core.t7575.prototype.cljs$core$IWithMeta$_with_meta$arity$2 = function(b) {
+  }(b), enfocus.core.t7576.prototype.cljs$core$IWithMeta$_with_meta$arity$2 = function(b) {
     return function(b, c) {
-      return new enfocus.core.t7575(this.trans, this.read_form_input, c);
+      return new enfocus.core.t7576(this.trans, this.read_form_input, c);
     };
-  }(b), enfocus.core.__GT_t7575 = function(b) {
+  }(b), enfocus.core.__GT_t7576 = function(b) {
     return function(b, c, f) {
-      return new enfocus.core.t7575(b, c, f);
+      return new enfocus.core.t7576(b, c, f);
     };
   }(b));
-  return new enfocus.core.t7575(b, read_form_input, null);
+  return new enfocus.core.t7576(b, read_form_input, null);
 };
 enfocus.core.read_form = function() {
   return enfocus.core.extr_multi_node.call(null, function(a) {
@@ -25780,9 +25780,9 @@ my.namespace.console_handler = function(a) {
 };
 goog.exportSymbol("my.namespace.console_handler", my.namespace.console_handler);
 if (null == cljs.core.deref.call(null, enfocus.core.tpl_cache).call(null, 'compiledpublic/prototype/login.html["#header"]')) {
-  var vec__5653_5658 = enfocus.core.replace_ids.call(null, "en5652_", '\x3cdiv id\x3d"header" class\x3d"header"\x3e \n \x3ca href\x3d"/"\x3e \x3cimg alt\x3d"Logo" height\x3d"59" src\x3d"/img/logo.png" width\x3d"163" /\x3e \x3c/a\x3e \n \x3cdiv class\x3d"text-logo"\x3e\n   YOUR DAILY PROJECT FIGHT PLAN\n  \x3ca href\x3d"https://twitter.com/listio_us" target\x3d"_blank"\x3e\x3cimg alt\x3d"twitter" height\x3d"45" src\x3d"/img/twitter.jpg" width\x3d"45" /\x3e\x3c/a\x3e \n \x3c/div\x3e \n\x3c/div\x3e'), 
-  sym__4515__auto___5659 = cljs.core.nth.call(null, vec__5653_5658, 0, null), txt__4516__auto___5660 = cljs.core.nth.call(null, vec__5653_5658, 1, null);
-  cljs.core.swap_BANG_.call(null, enfocus.core.tpl_cache, cljs.core.assoc, 'compiledpublic/prototype/login.html["#header"]', new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [sym__4515__auto___5659, txt__4516__auto___5660], null));
+  var vec__6005_6010 = enfocus.core.replace_ids.call(null, "en5652_", '\x3cdiv id\x3d"header" class\x3d"header"\x3e \n \x3ca href\x3d"/"\x3e \x3cimg alt\x3d"Logo" height\x3d"59" src\x3d"/img/logo.png" width\x3d"163" /\x3e \x3c/a\x3e \n \x3cdiv class\x3d"text-logo"\x3e\n   YOUR DAILY PROJECT FIGHT PLAN\n  \x3ca href\x3d"https://twitter.com/listio_us" target\x3d"_blank"\x3e\x3cimg alt\x3d"twitter" height\x3d"45" src\x3d"/img/twitter.jpg" width\x3d"45" /\x3e\x3c/a\x3e \n \x3c/div\x3e \n\x3c/div\x3e'), 
+  sym__4515__auto___6011 = cljs.core.nth.call(null, vec__6005_6010, 0, null), txt__4516__auto___6012 = cljs.core.nth.call(null, vec__6005_6010, 1, null);
+  cljs.core.swap_BANG_.call(null, enfocus.core.tpl_cache, cljs.core.assoc, 'compiledpublic/prototype/login.html["#header"]', new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [sym__4515__auto___6011, txt__4516__auto___6012], null));
 }
 my.namespace.header = function() {
   var a = function() {
@@ -25793,9 +25793,9 @@ my.namespace.header = function() {
   return enfocus.core.remove_node_return_child.call(null, a);
 };
 if (null == cljs.core.deref.call(null, enfocus.core.tpl_cache).call(null, 'compiledpublic/prototype/login.html["#login-form"]')) {
-  var vec__5662_5667 = enfocus.core.replace_ids.call(null, "en5661_", '\x3cdiv id\x3d"login-form" class\x3d"background-welcome"\x3e \n \x3cdiv class\x3d"welcome"\x3e \n  \x3cdiv class\x3d"text"\x3e\n    Sometimes it\'s not clear what your first task of the day should be or what\'s next.\n   \x3cbr /\x3e Split your issues into 4 categories and get natural vision of what should be done today. \n  \x3c/div\x3e \n  \x3cdiv class\x3d"references"\x3e \n   \x3ca class\x3d"github" href\x3d"/authorize"\x3e Login via\x3cspan class\x3d"git"\x3eGithub\x3c/span\x3e \x3c/a\x3e \n  \x3c/div\x3e \n \x3c/div\x3e \n\x3c/div\x3e'), 
-  sym__4515__auto___5668 = cljs.core.nth.call(null, vec__5662_5667, 0, null), txt__4516__auto___5669 = cljs.core.nth.call(null, vec__5662_5667, 1, null);
-  cljs.core.swap_BANG_.call(null, enfocus.core.tpl_cache, cljs.core.assoc, 'compiledpublic/prototype/login.html["#login-form"]', new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [sym__4515__auto___5668, txt__4516__auto___5669], null));
+  var vec__6013_6018 = enfocus.core.replace_ids.call(null, "en5661_", '\x3cdiv id\x3d"login-form" class\x3d"background-welcome"\x3e \n \x3cdiv class\x3d"welcome"\x3e \n  \x3cdiv class\x3d"text"\x3e\n    Sometimes it\'s not clear what your first task of the day should be or what\'s next.\n   \x3cbr /\x3e Split your issues into 4 categories and get natural vision of what should be done today. \n  \x3c/div\x3e \n  \x3cdiv class\x3d"references"\x3e \n   \x3ca class\x3d"github" href\x3d"/authorize"\x3e Login via\x3cspan class\x3d"git"\x3eGithub\x3c/span\x3e \x3c/a\x3e \n  \x3c/div\x3e \n \x3c/div\x3e \n\x3c/div\x3e'), 
+  sym__4515__auto___6019 = cljs.core.nth.call(null, vec__6013_6018, 0, null), txt__4516__auto___6020 = cljs.core.nth.call(null, vec__6013_6018, 1, null);
+  cljs.core.swap_BANG_.call(null, enfocus.core.tpl_cache, cljs.core.assoc, 'compiledpublic/prototype/login.html["#login-form"]', new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [sym__4515__auto___6019, txt__4516__auto___6020], null));
 }
 my.namespace.login_form = function() {
   var a = function() {
@@ -25806,9 +25806,9 @@ my.namespace.login_form = function() {
   return enfocus.core.remove_node_return_child.call(null, a);
 };
 if (null == cljs.core.deref.call(null, enfocus.core.tpl_cache).call(null, 'compiledpublic/prototype/login.html[".footer"]')) {
-  var vec__5671_5676 = enfocus.core.replace_ids.call(null, "en5670_", '\x3cdiv class\x3d"footer"\x3e \n \x3cdiv class\x3d"more-info"\x3e \n  \x3cdiv class\x3d"left-footer-box"\x3e \n   \x3ch3\x3eMethodology\x3c/h3\x3e \n   \x3cp\x3e Project idea is based on \x3ca href\x3d"https://timegt.com/2010/07/14/what-is-the-eisenhower-matrix/" target\x3d"_blank"\x3eEisenhower matrix\x3c/a\x3e: prioritizing tasks by urgency and importance. \x3c/p\x3e \n   \x3cp\x3e However in software development another factor is also important: Clarity.\x3cbr /\x3e So, we took clarity and importance, and implemented the matrix for your project github issues. \x3c/p\x3e \n  \x3c/div\x3e \n  \x3cdiv class\x3d"right-footer-box"\x3e \n   \x3ch3\x3eProject features:\x3c/h3\x3e \n   \x3cul\x3e \n    \x3cli\x3esync issues with github repository via custom tags (both ways)\x3c/li\x3e \n    \x3cli\x3esave issues order (temporary disabled for stability)\x3c/li\x3e \n    \x3cli\x3edaily boards (to be implemented)\x3c/li\x3e \n    \x3cli\x3eboard sharing (to be implemented)\x3c/li\x3e \n   \x3c/ul\x3e \n  \x3c/div\x3e \n \x3c/div\x3e \n\x3c/div\x3e'), 
-  sym__4515__auto___5677 = cljs.core.nth.call(null, vec__5671_5676, 0, null), txt__4516__auto___5678 = cljs.core.nth.call(null, vec__5671_5676, 1, null);
-  cljs.core.swap_BANG_.call(null, enfocus.core.tpl_cache, cljs.core.assoc, 'compiledpublic/prototype/login.html[".footer"]', new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [sym__4515__auto___5677, txt__4516__auto___5678], null));
+  var vec__6021_6026 = enfocus.core.replace_ids.call(null, "en5670_", '\x3cdiv class\x3d"footer"\x3e \n \x3cdiv class\x3d"more-info"\x3e \n  \x3cdiv class\x3d"left-footer-box"\x3e \n   \x3ch3\x3eMethodology\x3c/h3\x3e \n   \x3cp\x3e Project idea is based on \x3ca href\x3d"https://timegt.com/2010/07/14/what-is-the-eisenhower-matrix/" target\x3d"_blank"\x3eEisenhower matrix\x3c/a\x3e: prioritizing tasks by urgency and importance. \x3c/p\x3e \n   \x3cp\x3e However in software development another factor is also important: Clarity.\x3cbr /\x3e So, we took clarity and importance, and implemented the matrix for your project github issues. \x3c/p\x3e \n  \x3c/div\x3e \n  \x3cdiv class\x3d"right-footer-box"\x3e \n   \x3ch3\x3eProject features:\x3c/h3\x3e \n   \x3cul\x3e \n    \x3cli\x3esync issues with github repository via custom tags (both ways)\x3c/li\x3e \n    \x3cli\x3esave issues order (temporary disabled for stability)\x3c/li\x3e \n    \x3cli\x3edaily boards (to be implemented)\x3c/li\x3e \n    \x3cli\x3eboard sharing (to be implemented)\x3c/li\x3e \n   \x3c/ul\x3e \n  \x3c/div\x3e \n \x3c/div\x3e \n\x3c/div\x3e'), 
+  sym__4515__auto___6027 = cljs.core.nth.call(null, vec__6021_6026, 0, null), txt__4516__auto___6028 = cljs.core.nth.call(null, vec__6021_6026, 1, null);
+  cljs.core.swap_BANG_.call(null, enfocus.core.tpl_cache, cljs.core.assoc, 'compiledpublic/prototype/login.html[".footer"]', new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [sym__4515__auto___6027, txt__4516__auto___6028], null));
 }
 my.namespace.login_footer = function() {
   var a = function() {
@@ -25819,9 +25819,9 @@ my.namespace.login_footer = function() {
   return enfocus.core.remove_node_return_child.call(null, a);
 };
 if (null == cljs.core.deref.call(null, enfocus.core.tpl_cache).call(null, 'compiledpublic/prototype/main.html["#menu"]')) {
-  var vec__5681_5686 = enfocus.core.replace_ids.call(null, "en5680_", '\x3cdiv id\x3d"menu" class\x3d"background-toolbar"\x3e \n \x3cdiv class\x3d"toolbar"\x3e \n  \x3cdiv class\x3d"user table" username\x3d"kkolotyuk"\x3e \n   \x3ca class\x3d"table-cell user-link"\x3e \x3cimg alt\x3d"1401618?" class\x3d"avatar" src\x3d"https://avatars.githubusercontent.com/u/1401618?" /\x3e \x3c/a\x3e \n   \x3ca class\x3d"username table-cell" href\x3d"https://github.com/kkolotyuk"\x3ekkolotyuk\x3c/a\x3e \n   \x3cspan class\x3d"table-cell logout"\x3eLogout\x3c/span\x3e \n  \x3c/div\x3e \n  \x3cdiv class\x3d"left-side"\x3e \n   \x3cdiv class\x3d"select-repo"\x3e\n     http://github.com/\n    \x3cinput class\x3d"text-repo js-submit-by-enter" id\x3d"repo" name\x3d"repo" placeholder\x3d"username / repository" type\x3d"text" /\x3e\n    \x3cinput class\x3d"btn-switch" id\x3d"btn-switch-id" name\x3d"commit" type\x3d"submit" value\x3d"Choose project" /\x3e \n   \x3c/div\x3e \n  \x3c/div\x3e \n \x3c/div\x3e \n\x3c/div\x3e'), 
-  sym__4515__auto___5687 = cljs.core.nth.call(null, vec__5681_5686, 0, null), txt__4516__auto___5688 = cljs.core.nth.call(null, vec__5681_5686, 1, null);
-  cljs.core.swap_BANG_.call(null, enfocus.core.tpl_cache, cljs.core.assoc, 'compiledpublic/prototype/main.html["#menu"]', new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [sym__4515__auto___5687, txt__4516__auto___5688], null));
+  var vec__6030_6035 = enfocus.core.replace_ids.call(null, "en5680_", '\x3cdiv id\x3d"menu" class\x3d"background-toolbar"\x3e \n \x3cdiv class\x3d"toolbar"\x3e \n  \x3cdiv class\x3d"user table" username\x3d"kkolotyuk"\x3e \n   \x3ca class\x3d"table-cell user-link"\x3e \x3cimg alt\x3d"1401618?" class\x3d"avatar" src\x3d"https://avatars.githubusercontent.com/u/1401618?" /\x3e \x3c/a\x3e \n   \x3ca class\x3d"username table-cell" href\x3d"https://github.com/kkolotyuk"\x3ekkolotyuk\x3c/a\x3e \n   \x3cspan class\x3d"table-cell logout"\x3eLogout\x3c/span\x3e \n  \x3c/div\x3e \n  \x3cdiv class\x3d"left-side"\x3e \n   \x3cdiv class\x3d"select-repo"\x3e\n     http://github.com/\n    \x3cinput class\x3d"text-repo js-submit-by-enter" id\x3d"repo" name\x3d"repo" placeholder\x3d"username / repository" type\x3d"text" /\x3e\n    \x3cinput class\x3d"btn-switch" id\x3d"btn-switch-id" name\x3d"commit" type\x3d"submit" value\x3d"Choose project" /\x3e \n   \x3c/div\x3e \n  \x3c/div\x3e \n \x3c/div\x3e \n\x3c/div\x3e'), 
+  sym__4515__auto___6036 = cljs.core.nth.call(null, vec__6030_6035, 0, null), txt__4516__auto___6037 = cljs.core.nth.call(null, vec__6030_6035, 1, null);
+  cljs.core.swap_BANG_.call(null, enfocus.core.tpl_cache, cljs.core.assoc, 'compiledpublic/prototype/main.html["#menu"]', new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [sym__4515__auto___6036, txt__4516__auto___6037], null));
 }
 my.namespace.menu = function(a, b, c) {
   var d = function() {
@@ -25841,9 +25841,9 @@ my.namespace.menu = function(a, b, c) {
   return enfocus.core.remove_node_return_child.call(null, g);
 };
 if (null == cljs.core.deref.call(null, enfocus.core.tpl_cache).call(null, 'compiledpublic/prototype/main.html[".hint"]')) {
-  var vec__5690_5695 = enfocus.core.replace_ids.call(null, "en5689_", '\x3cdiv class\x3d"hint"\x3e \n \x3cspan class\x3d"title"\x3eType in some of your repositories with issues \u2191\x3c/span\x3e \n \x3cbr /\x3e note that we will add four labels \n \x3cbr /\x3e to your project to keep issues synced: \n \x3cbr /\x3e - clear \n \x3cbr /\x3e - not clear \n \x3cbr /\x3e - important \n \x3cbr /\x3e - not important \n\x3c/div\x3e'), sym__4515__auto___5696 = cljs.core.nth.call(null, vec__5690_5695, 0, 
-  null), txt__4516__auto___5697 = cljs.core.nth.call(null, vec__5690_5695, 1, null);
-  cljs.core.swap_BANG_.call(null, enfocus.core.tpl_cache, cljs.core.assoc, 'compiledpublic/prototype/main.html[".hint"]', new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [sym__4515__auto___5696, txt__4516__auto___5697], null));
+  var vec__6038_6043 = enfocus.core.replace_ids.call(null, "en5689_", '\x3cdiv class\x3d"hint"\x3e \n \x3cspan class\x3d"title"\x3eType in some of your repositories with issues \u2191\x3c/span\x3e \n \x3cbr /\x3e note that we will add four labels \n \x3cbr /\x3e to your project to keep issues synced: \n \x3cbr /\x3e - clear \n \x3cbr /\x3e - not clear \n \x3cbr /\x3e - important \n \x3cbr /\x3e - not important \n\x3c/div\x3e'), sym__4515__auto___6044 = cljs.core.nth.call(null, vec__6038_6043, 0, 
+  null), txt__4516__auto___6045 = cljs.core.nth.call(null, vec__6038_6043, 1, null);
+  cljs.core.swap_BANG_.call(null, enfocus.core.tpl_cache, cljs.core.assoc, 'compiledpublic/prototype/main.html[".hint"]', new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [sym__4515__auto___6044, txt__4516__auto___6045], null));
 }
 my.namespace.hint = function() {
   var a = function() {
@@ -25854,9 +25854,9 @@ my.namespace.hint = function() {
   return enfocus.core.remove_node_return_child.call(null, a);
 };
 if (null == cljs.core.deref.call(null, enfocus.core.tpl_cache).call(null, 'compiledpublic/prototype/main.html[".warning"]')) {
-  var vec__5699_5704 = enfocus.core.replace_ids.call(null, "en5698_", '\x3cdiv class\x3d"warning"\x3e\n  Repository not found \n \x3cdiv\x3e \n  \x3cdiv class\x3d"container gogogo"\x3e \n   \x3cdiv class\x3d"user-selector"\x3e \n    \x3cbutton class\x3d"btn-update btn-disabled" id\x3d"choose-repo-btn" name\x3d"button" type\x3d"submit"\x3e Syncronize with GitHub \x3c/button\x3e \n   \x3c/div\x3e \n   \x3cdiv class\x3d"left-side"\x3e \n    \x3cdiv class\x3d"user-selector"\x3e \n     \x3cbutton class\x3d"pressed" id\x3d"all-issues" name\x3d"button" type\x3d"submit"\x3e Unclassified Issues \x3c/button\x3e \n     \x3cdiv class\x3d"tab-container"\x3e \n      \x3cdiv class\x3d"right-border"\x3e \n       \x3cul class\x3d"js-sortable sortable ui-sortable" id\x3d"default-box"\x3e \n        \x3cli id\x3d"issue-1" class\x3d"issue" style\x3d"display: list-item;"\x3e \n         \x3cdiv class\x3d"name"\x3e\n          Issue\n         \x3c/div\x3e \n         \x3cdiv class\x3d"number"\x3e\n          #1\n         \x3c/div\x3e \n         \x3cdiv class\x3d"title"\x3e \n          \x3ca href\x3d"https://github.com/kkolotyuk/clojure-snake/issues/1" target\x3d"_blank"\x3e Test my app \x3c/a\x3e \n         \x3c/div\x3e \x3c/li\x3e \n       \x3c/ul\x3e \n      \x3c/div\x3e \n     \x3c/div\x3e \n    \x3c/div\x3e \n   \x3c/div\x3e \n   \x3cdiv class\x3d"container-boxs"\x3e \n    \x3cdiv class\x3d"box violet border"\x3e \n     \x3cul class\x3d"js-sortable sortable ui-sortable" id\x3d"4-box"\x3e\x3c/ul\x3e \n     \x3cdiv class\x3d"info"\x3e\n      Important \x26amp; Clear\n     \x3c/div\x3e \n     \x3cdiv class\x3d"help"\x3e\n      Just implement this!\n     \x3c/div\x3e \n    \x3c/div\x3e \n    \x3cdiv class\x3d"box red"\x3e \n     \x3cul class\x3d"js-sortable sortable ui-sortable" id\x3d"1-box"\x3e\x3c/ul\x3e \n     \x3cdiv class\x3d"info"\x3e\n      Important \x26amp; not clear\n     \x3c/div\x3e \n     \x3cdiv class\x3d"help"\x3e\n      Ask your product owner.\n      \x3cbr /\x3e Spend some time on investigation\n     \x3c/div\x3e \n    \x3c/div\x3e \n    \x3cdiv class\x3d"box green"\x3e \n     \x3cul class\x3d"js-sortable sortable ui-sortable" id\x3d"3-box"\x3e\x3c/ul\x3e \n     \x3cdiv class\x3d"info"\x3e\n      Not important \x26amp; clear\n     \x3c/div\x3e \n     \x3cdiv class\x3d"help"\x3e\n      Do simple tasks from this list\n      \x3cbr /\x3e to quick results and motivate yourself\n     \x3c/div\x3e \n    \x3c/div\x3e \n    \x3cdiv class\x3d"box violet"\x3e \n     \x3cul class\x3d"js-sortable sortable ui-sortable" id\x3d"2-box"\x3e\x3c/ul\x3e \n     \x3cdiv class\x3d"info"\x3e\n      Not important \x26amp; not clear\n     \x3c/div\x3e \n     \x3cdiv class\x3d"help"\x3e\n      Take a look at these issues at the end\n      \x3cbr /\x3e of your work day.\n     \x3c/div\x3e \n    \x3c/div\x3e \n   \x3c/div\x3e \n  \x3c/div\x3e   \n \x3c/div\x3e\n\x3c/div\x3e'), 
-  sym__4515__auto___5705 = cljs.core.nth.call(null, vec__5699_5704, 0, null), txt__4516__auto___5706 = cljs.core.nth.call(null, vec__5699_5704, 1, null);
-  cljs.core.swap_BANG_.call(null, enfocus.core.tpl_cache, cljs.core.assoc, 'compiledpublic/prototype/main.html[".warning"]', new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [sym__4515__auto___5705, txt__4516__auto___5706], null));
+  var vec__6046_6051 = enfocus.core.replace_ids.call(null, "en5698_", '\x3cdiv class\x3d"warning"\x3e\n  Repository not found \n \x3cdiv\x3e \n  \x3cdiv class\x3d"container gogogo"\x3e \n   \x3cdiv class\x3d"user-selector"\x3e \n    \x3cbutton class\x3d"btn-update btn-disabled" id\x3d"choose-repo-btn" name\x3d"button" type\x3d"submit"\x3e Syncronize with GitHub \x3c/button\x3e \n   \x3c/div\x3e \n   \x3cdiv class\x3d"left-side"\x3e \n    \x3cdiv class\x3d"user-selector"\x3e \n     \x3cbutton class\x3d"pressed" id\x3d"all-issues" name\x3d"button" type\x3d"submit"\x3e Unclassified Issues \x3c/button\x3e \n     \x3cdiv class\x3d"tab-container"\x3e \n      \x3cdiv class\x3d"right-border"\x3e \n       \x3cul class\x3d"js-sortable sortable ui-sortable" id\x3d"default-box"\x3e \n        \x3cli id\x3d"issue-1" class\x3d"issue" style\x3d"display: list-item;"\x3e \n         \x3cdiv class\x3d"name"\x3e\n          Issue\n         \x3c/div\x3e \n         \x3cdiv class\x3d"number"\x3e\n          #1\n         \x3c/div\x3e \n         \x3cdiv class\x3d"title"\x3e \n          \x3ca href\x3d"https://github.com/kkolotyuk/clojure-snake/issues/1" target\x3d"_blank"\x3e Test my app \x3c/a\x3e \n         \x3c/div\x3e \x3c/li\x3e \n       \x3c/ul\x3e \n      \x3c/div\x3e \n     \x3c/div\x3e \n    \x3c/div\x3e \n   \x3c/div\x3e \n   \x3cdiv class\x3d"container-boxs"\x3e \n    \x3cdiv class\x3d"box violet border"\x3e \n     \x3cul class\x3d"js-sortable sortable ui-sortable" id\x3d"4-box"\x3e\x3c/ul\x3e \n     \x3cdiv class\x3d"info"\x3e\n      Important \x26amp; Clear\n     \x3c/div\x3e \n     \x3cdiv class\x3d"help"\x3e\n      Just implement this!\n     \x3c/div\x3e \n    \x3c/div\x3e \n    \x3cdiv class\x3d"box red"\x3e \n     \x3cul class\x3d"js-sortable sortable ui-sortable" id\x3d"1-box"\x3e\x3c/ul\x3e \n     \x3cdiv class\x3d"info"\x3e\n      Important \x26amp; not clear\n     \x3c/div\x3e \n     \x3cdiv class\x3d"help"\x3e\n      Ask your product owner.\n      \x3cbr /\x3e Spend some time on investigation\n     \x3c/div\x3e \n    \x3c/div\x3e \n    \x3cdiv class\x3d"box green"\x3e \n     \x3cul class\x3d"js-sortable sortable ui-sortable" id\x3d"3-box"\x3e\x3c/ul\x3e \n     \x3cdiv class\x3d"info"\x3e\n      Not important \x26amp; clear\n     \x3c/div\x3e \n     \x3cdiv class\x3d"help"\x3e\n      Do simple tasks from this list\n      \x3cbr /\x3e to quick results and motivate yourself\n     \x3c/div\x3e \n    \x3c/div\x3e \n    \x3cdiv class\x3d"box violet"\x3e \n     \x3cul class\x3d"js-sortable sortable ui-sortable" id\x3d"2-box"\x3e\x3c/ul\x3e \n     \x3cdiv class\x3d"info"\x3e\n      Not important \x26amp; not clear\n     \x3c/div\x3e \n     \x3cdiv class\x3d"help"\x3e\n      Take a look at these issues at the end\n      \x3cbr /\x3e of your work day.\n     \x3c/div\x3e \n    \x3c/div\x3e \n   \x3c/div\x3e \n  \x3c/div\x3e   \n \x3c/div\x3e\n\x3c/div\x3e'), 
+  sym__4515__auto___6052 = cljs.core.nth.call(null, vec__6046_6051, 0, null), txt__4516__auto___6053 = cljs.core.nth.call(null, vec__6046_6051, 1, null);
+  cljs.core.swap_BANG_.call(null, enfocus.core.tpl_cache, cljs.core.assoc, 'compiledpublic/prototype/main.html[".warning"]', new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [sym__4515__auto___6052, txt__4516__auto___6053], null));
 }
 my.namespace.warning = function(a) {
   var b = function() {
@@ -25867,9 +25867,9 @@ my.namespace.warning = function(a) {
   return enfocus.core.remove_node_return_child.call(null, b);
 };
 if (null == cljs.core.deref.call(null, enfocus.core.tpl_cache).call(null, 'compiledpublic/prototype/main.html[".gogogo"]')) {
-  var vec__5708_5713 = enfocus.core.replace_ids.call(null, "en5707_", '\x3cdiv class\x3d"container gogogo"\x3e \n \x3cdiv class\x3d"user-selector"\x3e \n  \x3cbutton class\x3d"btn-update btn-disabled" id\x3d"choose-repo-btn" name\x3d"button" type\x3d"submit"\x3e Syncronize with GitHub \x3c/button\x3e \n \x3c/div\x3e \n \x3cdiv class\x3d"left-side"\x3e \n  \x3cdiv class\x3d"user-selector"\x3e \n   \x3cbutton class\x3d"pressed" id\x3d"all-issues" name\x3d"button" type\x3d"submit"\x3e Unclassified Issues \x3c/button\x3e \n   \x3cdiv class\x3d"tab-container"\x3e \n    \x3cdiv class\x3d"right-border"\x3e \n     \x3cul class\x3d"js-sortable sortable ui-sortable" id\x3d"default-box"\x3e \n      \x3cli id\x3d"issue-1" class\x3d"issue" style\x3d"display: list-item;"\x3e \n       \x3cdiv class\x3d"name"\x3e\n        Issue\n       \x3c/div\x3e \n       \x3cdiv class\x3d"number"\x3e\n        #1\n       \x3c/div\x3e \n       \x3cdiv class\x3d"title"\x3e \n        \x3ca href\x3d"https://github.com/kkolotyuk/clojure-snake/issues/1" target\x3d"_blank"\x3e Test my app \x3c/a\x3e \n       \x3c/div\x3e \x3c/li\x3e \n     \x3c/ul\x3e \n    \x3c/div\x3e \n   \x3c/div\x3e \n  \x3c/div\x3e \n \x3c/div\x3e \n \x3cdiv class\x3d"container-boxs"\x3e \n  \x3cdiv class\x3d"box violet border"\x3e \n   \x3cul class\x3d"js-sortable sortable ui-sortable" id\x3d"4-box"\x3e\x3c/ul\x3e \n   \x3cdiv class\x3d"info"\x3e\n    Important \x26amp; Clear\n   \x3c/div\x3e \n   \x3cdiv class\x3d"help"\x3e\n    Just implement this!\n   \x3c/div\x3e \n  \x3c/div\x3e \n  \x3cdiv class\x3d"box red"\x3e \n   \x3cul class\x3d"js-sortable sortable ui-sortable" id\x3d"1-box"\x3e\x3c/ul\x3e \n   \x3cdiv class\x3d"info"\x3e\n    Important \x26amp; not clear\n   \x3c/div\x3e \n   \x3cdiv class\x3d"help"\x3e\n    Ask your product owner.\n    \x3cbr /\x3e Spend some time on investigation\n   \x3c/div\x3e \n  \x3c/div\x3e \n  \x3cdiv class\x3d"box green"\x3e \n   \x3cul class\x3d"js-sortable sortable ui-sortable" id\x3d"3-box"\x3e\x3c/ul\x3e \n   \x3cdiv class\x3d"info"\x3e\n    Not important \x26amp; clear\n   \x3c/div\x3e \n   \x3cdiv class\x3d"help"\x3e\n    Do simple tasks from this list\n    \x3cbr /\x3e to quick results and motivate yourself\n   \x3c/div\x3e \n  \x3c/div\x3e \n  \x3cdiv class\x3d"box violet"\x3e \n   \x3cul class\x3d"js-sortable sortable ui-sortable" id\x3d"2-box"\x3e\x3c/ul\x3e \n   \x3cdiv class\x3d"info"\x3e\n    Not important \x26amp; not clear\n   \x3c/div\x3e \n   \x3cdiv class\x3d"help"\x3e\n    Take a look at these issues at the end\n    \x3cbr /\x3e of your work day.\n   \x3c/div\x3e \n  \x3c/div\x3e \n \x3c/div\x3e \n\x3c/div\x3e'), 
-  sym__4515__auto___5714 = cljs.core.nth.call(null, vec__5708_5713, 0, null), txt__4516__auto___5715 = cljs.core.nth.call(null, vec__5708_5713, 1, null);
-  cljs.core.swap_BANG_.call(null, enfocus.core.tpl_cache, cljs.core.assoc, 'compiledpublic/prototype/main.html[".gogogo"]', new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [sym__4515__auto___5714, txt__4516__auto___5715], null));
+  var vec__6054_6059 = enfocus.core.replace_ids.call(null, "en5707_", '\x3cdiv class\x3d"container gogogo"\x3e \n \x3cdiv class\x3d"user-selector"\x3e \n  \x3cbutton class\x3d"btn-update btn-disabled" id\x3d"choose-repo-btn" name\x3d"button" type\x3d"submit"\x3e Syncronize with GitHub \x3c/button\x3e \n \x3c/div\x3e \n \x3cdiv class\x3d"left-side"\x3e \n  \x3cdiv class\x3d"user-selector"\x3e \n   \x3cbutton class\x3d"pressed" id\x3d"all-issues" name\x3d"button" type\x3d"submit"\x3e Unclassified Issues \x3c/button\x3e \n   \x3cdiv class\x3d"tab-container"\x3e \n    \x3cdiv class\x3d"right-border"\x3e \n     \x3cul class\x3d"js-sortable sortable ui-sortable" id\x3d"default-box"\x3e \n      \x3cli id\x3d"issue-1" class\x3d"issue" style\x3d"display: list-item;"\x3e \n       \x3cdiv class\x3d"name"\x3e\n        Issue\n       \x3c/div\x3e \n       \x3cdiv class\x3d"number"\x3e\n        #1\n       \x3c/div\x3e \n       \x3cdiv class\x3d"title"\x3e \n        \x3ca href\x3d"https://github.com/kkolotyuk/clojure-snake/issues/1" target\x3d"_blank"\x3e Test my app \x3c/a\x3e \n       \x3c/div\x3e \x3c/li\x3e \n     \x3c/ul\x3e \n    \x3c/div\x3e \n   \x3c/div\x3e \n  \x3c/div\x3e \n \x3c/div\x3e \n \x3cdiv class\x3d"container-boxs"\x3e \n  \x3cdiv class\x3d"box violet border"\x3e \n   \x3cul class\x3d"js-sortable sortable ui-sortable" id\x3d"4-box"\x3e\x3c/ul\x3e \n   \x3cdiv class\x3d"info"\x3e\n    Important \x26amp; Clear\n   \x3c/div\x3e \n   \x3cdiv class\x3d"help"\x3e\n    Just implement this!\n   \x3c/div\x3e \n  \x3c/div\x3e \n  \x3cdiv class\x3d"box red"\x3e \n   \x3cul class\x3d"js-sortable sortable ui-sortable" id\x3d"1-box"\x3e\x3c/ul\x3e \n   \x3cdiv class\x3d"info"\x3e\n    Important \x26amp; not clear\n   \x3c/div\x3e \n   \x3cdiv class\x3d"help"\x3e\n    Ask your product owner.\n    \x3cbr /\x3e Spend some time on investigation\n   \x3c/div\x3e \n  \x3c/div\x3e \n  \x3cdiv class\x3d"box green"\x3e \n   \x3cul class\x3d"js-sortable sortable ui-sortable" id\x3d"3-box"\x3e\x3c/ul\x3e \n   \x3cdiv class\x3d"info"\x3e\n    Not important \x26amp; clear\n   \x3c/div\x3e \n   \x3cdiv class\x3d"help"\x3e\n    Do simple tasks from this list\n    \x3cbr /\x3e to quick results and motivate yourself\n   \x3c/div\x3e \n  \x3c/div\x3e \n  \x3cdiv class\x3d"box violet"\x3e \n   \x3cul class\x3d"js-sortable sortable ui-sortable" id\x3d"2-box"\x3e\x3c/ul\x3e \n   \x3cdiv class\x3d"info"\x3e\n    Not important \x26amp; not clear\n   \x3c/div\x3e \n   \x3cdiv class\x3d"help"\x3e\n    Take a look at these issues at the end\n    \x3cbr /\x3e of your work day.\n   \x3c/div\x3e \n  \x3c/div\x3e \n \x3c/div\x3e \n\x3c/div\x3e'), 
+  sym__4515__auto___6060 = cljs.core.nth.call(null, vec__6054_6059, 0, null), txt__4516__auto___6061 = cljs.core.nth.call(null, vec__6054_6059, 1, null);
+  cljs.core.swap_BANG_.call(null, enfocus.core.tpl_cache, cljs.core.assoc, 'compiledpublic/prototype/main.html[".gogogo"]', new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [sym__4515__auto___6060, txt__4516__auto___6061], null));
 }
 my.namespace.four_boxes = function() {
   var a = function() {
@@ -25880,9 +25880,9 @@ my.namespace.four_boxes = function() {
   return enfocus.core.remove_node_return_child.call(null, a);
 };
 if (null == cljs.core.deref.call(null, enfocus.core.tpl_cache).call(null, 'compiledpublic/prototype/main.html["#issue-1"]')) {
-  var vec__5717_5722 = enfocus.core.replace_ids.call(null, "en5716_", '\x3cli id\x3d"issue-1" class\x3d"issue" style\x3d"display: list-item;"\x3e \n \x3cdiv class\x3d"name"\x3e\n  Issue\n \x3c/div\x3e \n \x3cdiv class\x3d"number"\x3e\n  #1\n \x3c/div\x3e \n \x3cdiv class\x3d"title"\x3e \n  \x3ca href\x3d"https://github.com/kkolotyuk/clojure-snake/issues/1" target\x3d"_blank"\x3e Test my app \x3c/a\x3e \n \x3c/div\x3e \x3c/li\x3e'), sym__4515__auto___5723 = cljs.core.nth.call(null, vec__5717_5722, 
-  0, null), txt__4516__auto___5724 = cljs.core.nth.call(null, vec__5717_5722, 1, null);
-  cljs.core.swap_BANG_.call(null, enfocus.core.tpl_cache, cljs.core.assoc, 'compiledpublic/prototype/main.html["#issue-1"]', new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [sym__4515__auto___5723, txt__4516__auto___5724], null));
+  var vec__6062_6067 = enfocus.core.replace_ids.call(null, "en5716_", '\x3cli id\x3d"issue-1" class\x3d"issue" style\x3d"display: list-item;"\x3e \n \x3cdiv class\x3d"name"\x3e\n  Issue\n \x3c/div\x3e \n \x3cdiv class\x3d"number"\x3e\n  #1\n \x3c/div\x3e \n \x3cdiv class\x3d"title"\x3e \n  \x3ca href\x3d"https://github.com/kkolotyuk/clojure-snake/issues/1" target\x3d"_blank"\x3e Test my app \x3c/a\x3e \n \x3c/div\x3e \x3c/li\x3e'), sym__4515__auto___6068 = cljs.core.nth.call(null, vec__6062_6067, 
+  0, null), txt__4516__auto___6069 = cljs.core.nth.call(null, vec__6062_6067, 1, null);
+  cljs.core.swap_BANG_.call(null, enfocus.core.tpl_cache, cljs.core.assoc, 'compiledpublic/prototype/main.html["#issue-1"]', new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [sym__4515__auto___6068, txt__4516__auto___6069], null));
 }
 my.namespace.one_issue = function(a) {
   var b = function() {
@@ -25895,7 +25895,14 @@ my.namespace.one_issue = function(a) {
   return enfocus.core.remove_node_return_child.call(null, b);
 };
 my.namespace.replace_issue = function(a, b, c, d) {
-  return ajax.core.POST.call(null, "/issues/replace", new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "params", "params", 4313443576), new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null, "username", "username", 748190792), a, new cljs.core.Keyword(null, "repo", "repo", 1017401060), b, new cljs.core.Keyword(null, "number", "number", 4274507451), c, new cljs.core.Keyword(null, "box", "box", 1014001981), d], null)], null));
+  return ajax.core.POST.call(null, "/issues/replace", new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "params", "params", 4313443576), new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null, "username", "username", 748190792), a, new cljs.core.Keyword(null, "repo", "repo", 1017401060), b, new cljs.core.Keyword(null, "number", "number", 4274507451), c, new cljs.core.Keyword(null, "box", "box", 1014001981), d], null), new cljs.core.Keyword(null, "handler", "handler", 
+  1706707644), function(a) {
+    if (cljs.core.truth_((new cljs.core.Keyword(null, "success", "success", 3441701749)).cljs$core$IFn$_invoke$arity$1(a))) {
+      return null;
+    }
+    enfocus.core.at.call(null, ".hint", enfocus.core.remove_node.call(null), ".warning", enfocus.core.remove_node.call(null), ".gogogo", enfocus.core.remove_node.call(null));
+    return enfocus.core.at.call(null, "body", enfocus.core.append.call(null, my.namespace.warning.call(null, (new cljs.core.Keyword(null, "message", "message", 1968829305)).cljs$core$IFn$_invoke$arity$1(a))));
+  }], null));
 };
 goog.exportSymbol("my.namespace.replace_issue", my.namespace.replace_issue);
 my.namespace.receive_callback = function(a, b) {
