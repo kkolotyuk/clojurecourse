@@ -20,9 +20,14 @@
   ".username" (ef/do-> (ef/set-attr :href github-url)
                        (ef/content username))
   ".logout" (events/listen :click logout)
-  "#btn-switch-id" (events/listen :click #(init-boxes
-                                           (ef/from "#repo"
-                                                    (ef/get-prop :value)))))
+  "#btn-switch-id" (events/listen :click
+                                  #(init-boxes
+                                    (ef/from "#repo"
+                                             (ef/get-prop :value))))
+  ".js-submit-by-enter" (events/listen :keypress
+                                       #(when (= (.-keyCode %) 13)
+                                         (init-boxes (ef/from "#repo"
+                                                              (ef/get-prop :value))))))
 
 (em/defsnippet hint :compiled "public/prototype/main.html" [".hint"] [])
 (em/defsnippet warning :compiled "public/prototype/main.html" [".warning"] [text]

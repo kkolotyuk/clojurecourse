@@ -12,11 +12,12 @@
                  [stuarth/clj-oauth2 "0.3.2"]
                  [fogus/ring-edn "0.2.0"]
                  [cljs-ajax "0.2.4"]
-                 [jayq "2.5.1"]]
+                 [jayq "2.5.1"]
+                 [sonian/carica "1.1.0" :exclusions [[cheshire]]]]
   :profiles {:dev {:plugins [[lein-cljsbuild "1.0.3"]]}}
   :ring {:handler listio.server/app}
   :target-path "target/%s"
   :cljsbuild {:builds [{:source-paths ["src"]
                         :compiler {:output-to "resources/public/js/main.js"
-                                   :optimizations :whitespace
+                                   :optimizations :simple
                                    :pretty-print true}}]})
