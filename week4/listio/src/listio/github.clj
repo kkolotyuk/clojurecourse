@@ -18,7 +18,8 @@
 
 
 (defn success? [resp]
-  (not (contains? #{404 403} (:status resp))))
+  (and (not (nil? resp))
+       (not (contains? #{404 403} (:status resp)))))
 
 (defn fetch-user [access-token]
   (users/me {:oauth_token access-token}))
@@ -47,10 +48,14 @@
                          :repo repo}]
     (merge info additional-info)))
 
-(defn fetch-open-issues [username repo]
-  (let [repo-issues (issues/issues username repo)]
+(defn fetch-open-issues [username reponame]
+  (let [repo (fetch-repo username reponame)
+        repo-issues (cond
+                      (nil? repo) nil
+                      (> (:open_issues_count repo) 0) (issues/issues username reponame)
+                      :else [])]
     (when (success? repo-issues)
-      (let [issues-info (map #(fetch-issue-info % username repo) repo-issues)
+      (let [issues-info (map #(fetch-issue-info % username reponame) repo-issues)
             grouped-issues (group-by which-box issues-info)]
         grouped-issues))))
 
@@ -71,6 +76,7 @@
           resp (issues/edit-issue username repo number {:oauth_token access-token :labels new-labels})]
       (if (success? resp)
         {:success true}
-        {:success false :message "Something went wrong. May be you don't have permissions to change these issues."}))))
+        {:success false :message "Something went wrong. May be you don't have permissions to change these issues."})
+      )))
 
 
